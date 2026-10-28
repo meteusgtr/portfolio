@@ -72,7 +72,7 @@ const translations = {
     filter_fail: "Falhas",
 
     // Secondary Cases
-    p3_title: "Sustentação de BI Global & Otimização de Queries no Athena",
+    p3_title: "Sustentação de BI & Otimização de Queries no Athena",
     p3_desc: "Manutenção e melhorias em relatórios de Power BI e Tableau para apoiar stakeholders nos Estados Unidos. Otimização e correção de consultas SQL executadas no Amazon Athena para garantir dados corretos e boa performance de carregamento.",
     p4_title: "Pipelines e Dashboards de Performance de Marketing",
     p4_desc: "Extração de dados de Google Ads e Facebook Ads via Supermetrics e Tableau Prep. Construção de dashboards no Power BI e Tableau acompanhando KPIs de mídia (ROAS, conversões, cliques e impressões), com prototipação de telas no Figma.",
@@ -189,7 +189,7 @@ const translations = {
     filter_fail: "Failures",
 
     // Secondary Cases
-    p3_title: "Global BI Support & Amazon Athena Query Optimization",
+    p3_title: "BI Support & Amazon Athena Query Optimization",
     p3_desc: "Maintained and enhanced Power BI and Tableau reports supporting US stakeholders. Debugged and tuned SQL queries in Amazon Athena to ensure correct visualization and low latency across S3 data lakes.",
     p4_title: "Marketing Performance Pipelines & Dashboards",
     p4_desc: "Ingested Google Ads and Facebook Ads data using Supermetrics and Tableau Prep. Built Power BI and Tableau dashboards tracking performance metrics (ROAS, conversions, clicks, and impressions), with wireframes designed in Figma.",
@@ -409,28 +409,22 @@ function initLanguage() {
     currentLang = browserLang.startsWith('pt') ? 'pt' : 'en';
   }
   applyTranslations();
-  updateLangButton();
+  updateLangSwitcher();
 }
 
-function toggleLanguage() {
-  currentLang = currentLang === 'pt' ? 'en' : 'pt';
+function setLanguage(lang) {
+  currentLang = lang;
   localStorage.setItem('mf_lang_pref', currentLang);
   applyTranslations();
-  updateLangButton();
+  updateLangSwitcher();
   renderP1Table();
   renderP2Table();
 }
 
-function updateLangButton() {
-  const flagEl = document.getElementById('langFlag');
-  const labelEl = document.getElementById('langLabel');
-  if (currentLang === 'pt') {
-    flagEl.textContent = '🇧🇷';
-    labelEl.textContent = 'PT';
-  } else {
-    flagEl.textContent = '🇺🇸';
-    labelEl.textContent = 'EN';
-  }
+function updateLangSwitcher() {
+  document.querySelectorAll('.lang-opt').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('data-lang') === currentLang);
+  });
 }
 
 function applyTranslations() {
@@ -569,8 +563,9 @@ document.addEventListener('DOMContentLoaded', () => {
   renderP1Table();
   renderP2Table();
 
-  const langToggle = document.getElementById('langToggle');
-  if (langToggle) {
-    langToggle.addEventListener('click', toggleLanguage);
-  }
+  document.querySelectorAll('.lang-opt').forEach(btn => {
+    btn.addEventListener('click', () => {
+      setLanguage(btn.getAttribute('data-lang'));
+    });
+  });
 });

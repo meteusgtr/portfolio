@@ -37,10 +37,10 @@
 
       <div class="header-actions">
         <!-- Language Switcher -->
-        <button class="lang-btn" id="langToggle" aria-label="Alterar idioma">
-          <span id="langFlag">🇧🇷</span>
-          <span id="langLabel">PT</span>
-        </button>
+        <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Idioma">
+          <button type="button" class="lang-opt active" data-lang="pt">PT</button>
+          <button type="button" class="lang-opt" data-lang="en">EN</button>
+        </div>
       </div>
     </div>
   </header>
@@ -395,7 +395,7 @@ df.write.format("delta").mode("append").saveAsTable("Lakehouse_Monitoring.Fact_A
           <div class="project-meta-line">
             <span class="project-tag">Accenture • Johnson & Johnson US</span>
           </div>
-          <h3 class="secondary-title" data-i18n="p3_title">Sustentação de BI Global & Otimização de Queries no Athena</h3>
+          <h3 class="secondary-title" data-i18n="p3_title">Sustentação de BI & Otimização de Queries no Athena</h3>
           <p class="secondary-desc" data-i18n="p3_desc">
             Manutenção e melhorias em relatórios de Power BI e Tableau para apoiar stakeholders nos Estados Unidos. Otimização e correção de consultas SQL executadas no Amazon Athena para garantir dados corretos e boa performance de carregamento.
           </p>
