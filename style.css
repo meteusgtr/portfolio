@@ -108,24 +108,27 @@ a {
 .lang-switcher {
   display: inline-flex;
   align-items: center;
-  background: var(--bg-surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 2px;
-  gap: 2px;
+  gap: 0.3rem;
+}
+
+.lang-sep {
+  color: var(--border);
+  font-size: 0.82rem;
+  user-select: none;
+  pointer-events: none;
 }
 
 .lang-opt {
-  background: transparent;
+  background: none;
   border: none;
-  color: var(--text-muted);
+  color: var(--text-sub);
   font-family: var(--font-mono);
-  font-size: 0.74rem;
-  font-weight: 600;
-  padding: 0.2rem 0.55rem;
-  border-radius: 4px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 0;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: color 0.15s ease;
+  letter-spacing: 0.02em;
 }
 
 .lang-opt:hover {
@@ -133,8 +136,8 @@ a {
 }
 
 .lang-opt.active {
-  background: var(--border);
   color: var(--text-main);
+  font-weight: 600;
 }
 
 /* =========================================================================
