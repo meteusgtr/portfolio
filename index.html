@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matheus Fernandes | Data Analyst & BI Analytics Portfolio</title>
+  <meta name="description" content="Portfólio de Matheus Fernandes - Analista de Dados & Business Intelligence. Cases reais, engenharia de dados, SQL, Power BI, Microsoft Fabric e otimização de custos." />
+  <meta name="author" content="Matheus Fernandes" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-brand">
+        <span class="brand-badge">MF</span>
+        <span class="brand-name">Matheus Fernandes</span>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="#about" class="nav-link" data-i18n="nav_about">Sobre</a>
+        <a href="#skills" class="nav-link" data-i18n="nav_skills">Habilidades</a>
+        <a href="#projects" class="nav-link" data-i18n="nav_projects">Projetos & Cases</a>
+        <a href="#experience" class="nav-link" data-i18n="nav_experience">Experiência</a>
+        <a href="#contact" class="nav-link" data-i18n="nav_contact">Contato</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Language Switcher -->
+        <button class="lang-toggle-btn" id="langToggle" aria-label="Alterar Idioma / Change Language">
+          <span class="lang-flag" id="langFlag">🇧🇷</span>
+          <span class="lang-code" id="langCode">PT</span>
+        </button>
+
+        <a href="#contact" class="btn-primary-sm" data-i18n="cta_contact">Falar Comigo</a>
+
+        <button class="menu-mobile-btn" id="mobileMenuBtn" aria-label="Abrir Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-glow"></div>
+    <div class="container hero-content">
+      <div class="hero-pill">
+        <span class="pulse-dot"></span>
+        <span data-i18n="hero_pill">Disponível para novos desafios em Dados & BI</span>
+      </div>
+
+      <h1 class="hero-title">
+        <span data-i18n="hero_greeting">Olá, eu sou</span>
+        <span class="highlight-gradient">Matheus Fernandes</span>
+      </h1>
+
+      <p class="hero-subtitle" data-i18n="hero_role">
+        Analista de Dados & Business Intelligence | Especialista em Governança, Power BI, SQL & Microsoft Fabric
+      </p>
+
+      <p class="hero-desc" data-i18n="hero_bio">
+        Transformo dados complexos em eficiência financeira e decisões de alto impacto. +4 anos de experiência atendendo gigantes como <strong>VALE</strong>, <strong>Johnson & Johnson</strong>, <strong>iFood</strong> e <strong>O Boticário</strong>. Economia comprovada de mais de <strong>R$ 500 mil/ano</strong> em infraestrutura de dados e governança de capacidades com +70 mil usuários.
+      </p>
+
+      <div class="hero-metrics-strip">
+        <div class="metric-card">
+          <div class="metric-number text-accent">+R$ 500k</div>
+          <div class="metric-label" data-i18n="stat_savings">Economia Anual em Otimização de Custos</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-number">+70.000</div>
+          <div class="metric-label" data-i18n="stat_users">Usuários Ativos em Ambientes Gerenciados</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-number">+4 Anos</div>
+          <div class="metric-label" data-i18n="stat_exp">Experiência com BI, ETL & Data Pipelines</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-number">12</div>
+          <div class="metric-label" data-i18n="stat_capacities">Capacidades Premium Monitoradas</div>
+        </div>
+      </div>
+
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">
+          <i class="fa-solid fa-chart-pie"></i>
+          <span data-i18n="hero_btn_cases">Explorar Cases & Simulações</span>
+        </a>
+        <a href="https://www.linkedin.com/in/frnandesmatheus" target="_blank" rel="noopener" class="btn btn-secondary">
+          <i class="fa-brands fa-linkedin"></i>
+          <span>LinkedIn</span>
+        </a>
+        <a href="mailto:matheus.srf@gmail.com" class="btn btn-outline">
+          <i class="fa-regular fa-envelope"></i>
+          <span>matheus.srf@gmail.com</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About & Value Section -->
+  <section class="section about-section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge" data-i18n="about_badge">Sobre Mim</span>
+        <h2 class="section-title" data-i18n="about_title">Engenharia de Análise com Foco no Negócio</h2>
+        <p class="section-subtitle" data-i18n="about_subtitle">
+          Unindo modelagem dimensional, governança e mentalidade analítica para gerar ROI real em dados corporativos.
+        </p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-card glass">
+          <div class="icon-box"><i class="fa-solid fa-coins"></i></div>
+          <h3 data-i18n="about_col1_title">Governança & FinOps de BI</h3>
+          <p data-i18n="about_col1_desc">
+            Auditoria profunda de logs de atividade (Activity Log / Unified Audit Log), mapeamento de consumo de licenças e alocação estratégica de recursos em Microsoft Fabric e Power BI Premium para cortar custos sem degradar a experiência.
+          </p>
+        </div>
+
+        <div class="about-card glass">
+          <div class="icon-box"><i class="fa-solid fa-database"></i></div>
+          <h3 data-i18n="about_col2_title">SQL Avançado & Pipelines ETL</h3>
+          <p data-i18n="about_col2_desc">
+            Consultas otimizadas, agregação analítica com HAVING/Window Functions, modelagem Star Schema em SQL Server, Azure Analysis Services, Athena e Databricks para ingestão e transformação de alta performance.
+          </p>
+        </div>
+
+        <div class="about-card glass">
+          <div class="icon-box"><i class="fa-solid fa-chart-line"></i></div>
+          <h3 data-i18n="about_col3_title">Dashboards no Figma & Power BI</h3>
+          <p data-i18n="about_col3_desc">
+            Criação de interfaces orientadas ao usuário (UX/UI para Analytics) prototipadas no Figma e implementadas no Power BI com DAX robusto, garantindo que stakeholders tomem decisões claras em segundos.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Strip -->
+  <section class="section skills-section" id="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge" data-i18n="skills_badge">Stack Técnica</span>
+        <h2 class="section-title" data-i18n="skills_title">Tecnologias & Ferramentas</h2>
+      </div>
+
+      <div class="skills-categories">
+        <div class="skill-group">
+          <div class="skill-group-title" data-i18n="skill_group_bi">Business Intelligence & Visualização</div>
+          <div class="skill-tags">
+            <span class="skill-tag highlight"><i class="fa-solid fa-bolt"></i> Power BI</span>
+            <span class="skill-tag highlight"><i class="fa-solid fa-cube"></i> Microsoft Fabric</span>
+            <span class="skill-tag"><i class="fa-solid fa-chart-column"></i> DAX Avançado</span>
+            <span class="skill-tag"><i class="fa-solid fa-table"></i> Tableau</span>
+            <span class="skill-tag"><i class="fa-solid fa-palette"></i> Figma (Data UX/UI)</span>
+            <span class="skill-tag"><i class="fa-solid fa-filter"></i> Power Query / Linguagem M</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-title" data-i18n="skill_group_data">Bancos de Dados & Engenharia</div>
+          <div class="skill-tags">
+            <span class="skill-tag highlight"><i class="fa-solid fa-database"></i> SQL Server / T-SQL</span>
+            <span class="skill-tag"><i class="fa-solid fa-cloud"></i> Azure Analysis Services</span>
+            <span class="skill-tag"><i class="fa-brands fa-aws"></i> AWS Athena</span>
+            <span class="skill-tag"><i class="fa-solid fa-fire"></i> Databricks</span>
+            <span class="skill-tag"><i class="fa-brands fa-python"></i> Python para Análise</span>
+            <span class="skill-tag"><i class="fa-solid fa-arrows-split-up-and-left"></i> Pipelines ETL / ELT</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-title" data-i18n="skill_group_auto">Automação & Governança</div>
+          <div class="skill-tags">
+            <span class="skill-tag highlight"><i class="fa-solid fa-gears"></i> Power Automate</span>
+            <span class="skill-tag"><i class="fa-solid fa-shield-halved"></i> Power BI Audit & Activity Logs</span>
+            <span class="skill-tag"><i class="fa-solid fa-wallet"></i> Otimização FinOps de Licenças</span>
+            <span class="skill-tag"><i class="fa-solid fa-users"></i> Gestão de Capacidades (+70k users)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects & Deep Cases -->
+  <section class="section projects-section" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge" data-i18n="projects_badge">Portfólio de Cases</span>
+        <h2 class="section-title" data-i18n="projects_title">Projetos em Destaque & Simulações Interativas</h2>
+        <p class="section-subtitle" data-i18n="projects_subtitle">
+          Por motivos de conformidade e sigilo corporativo (LGPD/NDAs), os dados reais foram anonimizados e recriados em uma simulação interativa que preserva fielmente a lógica analítica e arquitetural aplicada.
+        </p>
+      </div>
+
+      <!-- Case 1: VALE Licensing Optimization -->
+      <article class="case-card featured-case glass" id="case-vale">
+        <div class="case-badge-bar">
+          <span class="tag-client"><i class="fa-solid fa-building"></i> Case VALE / DXC</span>
+          <span class="tag-impact"><i class="fa-solid fa-arrow-trend-up"></i> <span data-i18n="case1_tag_impact">Economia: R$ 500.000 / ano</span></span>
+          <span class="tag-tech">SQL + Power BI Audit + Fabric</span>
+        </div>
+
+        <div class="case-header">
+          <h3 class="case-title" data-i18n="case1_title">
+            Otimização Inteligente de Licenças Power BI via Auditoria de Logs em Capacidades Premium
+          </h3>
+          <p class="case-summary" data-i18n="case1_summary">
+            Auditoria avançada de telemetria sobre mais de 6.000 licenças pagas e 12 capacidades Premium, identificando padrões estritos de consumo para realizar downgrades seguros (Pro para Free) com zero interrupção operacional.
+          </p>
+        </div>
+
+        <!-- Problem / Insight / Architecture Grid -->
+        <div class="case-pillars-grid">
+          <div class="pillar-box">
+            <div class="pillar-icon text-warning"><i class="fa-solid fa-triangle-exclamation"></i></div>
+            <h4 data-i18n="case1_p1_title">1. O Desafio de Custos</h4>
+            <p data-i18n="case1_p1_desc">
+              A organização mantinha 12 capacidades Premium dedicadas e arcava simultaneamente com <strong>+6.000 licenças Pro ativas</strong>. Isso gerava um custo de licenciamento anual exorbitante e redundante.
+            </p>
+          </div>
+
+          <div class="pillar-box">
+            <div class="pillar-icon text-accent"><i class="fa-solid fa-lightbulb"></i></div>
+            <h4 data-i18n="case1_p2_title">2. A Regra Arquitetural</h4>
+            <p data-i18n="case1_p2_desc">
+              Em workspaces hospedados em <strong>Capacidades Premium</strong>, consumidores de relatórios <strong>não precisam de licença Pro</strong>; uma licença <em>Free</em> (gratuita) é suficiente para visualizar e interagir com relatórios.
+            </p>
+          </div>
+
+          <div class="pillar-box">
+            <div class="pillar-icon text-success"><i class="fa-solid fa-crosshairs"></i></div>
+            <h4 data-i18n="case1_p3_title">3. O Critério Estrito (SQL)</h4>
+            <p data-i18n="case1_p3_desc">
+              Um usuário só era elegível se <strong>100%</strong> das suas atividades fossem <code>ViewReport</code> dentro de capacidades Premium. Qualquer atividade de edição, criação ou acesso a workspace compartilhado mantinha o usuário como Pro.
+            </p>
+          </div>
+        </div>
+
+        <!-- Technical Breakdown & SQL Code -->
+        <div class="case-technical-box">
+          <div class="tech-box-header">
+            <div class="tech-tabs">
+              <button class="tech-tab active" data-tab="sql-query" data-i18n="tab_sql">Lógica da Consulta SQL</button>
+              <button class="tech-tab" data-tab="architecture" data-i18n="tab_arch">Fluxo de Tomada de Decisão</button>
+            </div>
+            <span class="tech-status-badge"><i class="fa-solid fa-check"></i> <span data-i18n="badge_validated">Lógica Validada em Produção</span></span>
+          </div>
+
+          <div class="tech-content active" id="tab-sql-query">
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span><i class="fa-solid fa-code"></i> query_otimizacao_licencas_powerbi.sql</span>
+                <button class="btn-copy-code" id="copyCodeBtn" title="Copiar SQL"><i class="fa-regular fa-copy"></i> Copiar</button>
+              </div>
+              <pre><code class="language-sql">-- =========================================================================
+-- CASE VALE: Identificação de Usuários Pro Elegíveis para Downgrade (Free)
+-- Regra: Usuário Pro cujo histórico tem EXCLUSIVAMENTE 'ViewReport' em Premium
+-- =========================================================================
+
+WITH UserAuditAggregated AS (
+    SELECT 
+        u.UserEmail,
+        u.Department,
+        u.CurrentLicense,
+        COUNT(a.ActivityId) AS TotalActivities,
+        
+        -- Contagem de acessos válidos: visualização em capacidade Premium
+        COUNT(CASE 
+            WHEN a.ActivityType = 'ViewReport' AND w.IsPremiumCapacity = 1 
+            THEN 1 
+        END) AS PremiumViewCount,
+        
+        -- Contagem de atividades restritas que EXIGEM licença Pro:
+        -- Edição, Criação, Publicação, Exportação ou qualquer ação em Workspace Não-Premium
+        COUNT(CASE 
+            WHEN a.ActivityType != 'ViewReport' 
+              OR w.IsPremiumCapacity = 0 
+            THEN 1 
+        END) AS ProRequiredActivitiesCount
+
+    FROM Dim_Users u
+    INNER JOIN Fact_PowerBI_AuditLog a 
+        ON u.UserEmail = a.UserEmail
+    INNER JOIN Dim_Workspaces w 
+        ON a.WorkspaceId = w.WorkspaceId
+    WHERE 
+        u.CurrentLicense = 'Power BI Pro'
+        AND a.ActivityDate >= DATEADD(month, -3, GETDATE()) -- Janela de 90 dias de auditoria
+    GROUP BY 
+        u.UserEmail,
+        u.Department,
+        u.CurrentLicense
+)
+SELECT 
+    UserEmail,
+    Department,
+    CurrentLicense,
+    TotalActivities,
+    PremiumViewCount,
+    ProRequiredActivitiesCount,
+    'ELEGIVEL_DOWNGRADE_FREE' AS StatusRecomendado,
+    'Economia imediata de licença Pro sem impacto operacional' AS Justificativa
+FROM UserAuditAggregated
+WHERE 
+    TotalActivities > 0
+    -- O usuário visualizou relatórios em Premium...
+    AND PremiumViewCount > 0 
+    -- ...E JAMAIS realizou qualquer atividade que demande licença Pro!
+    AND ProRequiredActivitiesCount = 0
+ORDER BY 
+    TotalActivities DESC;</code></pre>
+            </div>
+          </div>
+
+          <div class="tech-content" id="tab-architecture">
+            <div class="decision-tree-container">
+              <div class="dt-step step-input">
+                <div class="dt-tag">Entrada</div>
+                <strong>+6.000 Usuários Pro</strong>
+                <span>Logs de Auditoria de 90 dias</span>
+              </div>
+              <div class="dt-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+              <div class="dt-step step-check">
+                <div class="dt-tag">Filtro 1</div>
+                <strong>Atividades em Premium?</strong>
+                <span>Workspaces em Capacidade P-SKU / Fabric</span>
+              </div>
+              <div class="dt-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+              <div class="dt-step step-check">
+                <div class="dt-tag">Filtro 2 (Cláusula HAVING)</div>
+                <strong>Apenas "ViewReport"?</strong>
+                <span>Zero ações de edição/criação/compartilhamento</span>
+              </div>
+              <div class="dt-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+              <div class="dt-step step-outcome">
+                <div class="dt-tag success">Resultado</div>
+                <strong>Downgrade Seguro para Free</strong>
+                <span class="text-accent font-bold">~R$ 500.000 Economizados / 2025</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Simulation Simulator -->
+        <div class="simulation-section">
+          <div class="simulation-header">
+            <div>
+              <h4 class="sim-title" data-i18n="sim_title"><i class="fa-solid fa-play-circle text-accent"></i> Simulação Interativa de Dados Sintéticos</h4>
+              <p class="sim-desc" data-i18n="sim_desc">
+                Teste a lógica de auditoria em tempo real com este dataset representativo (10 exemplos simulados). Clique nos filtros para verificar a classificação automática.
+              </p>
+            </div>
+            <div class="sim-filters">
+              <button class="sim-filter-btn active" data-filter="all" data-i18n="sim_filter_all">Todos (10)</button>
+              <button class="sim-filter-btn" data-filter="eligible" data-i18n="sim_filter_eligible">✅ Elegíveis para Free</button>
+              <button class="sim-filter-btn" data-filter="keep" data-i18n="sim_filter_keep">🔒 Manter Licença Pro</button>
+            </div>
+          </div>
+
+          <div class="sim-table-responsive">
+            <table class="sim-table" id="simulationTable">
+              <thead>
+                <tr>
+                  <th data-i18n="th_user">Usuário Simulado</th>
+                  <th data-i18n="th_dept">Departamento</th>
+                  <th data-i18n="th_license">Licença Atual</th>
+                  <th data-i18n="th_views">Visualizações (Premium)</th>
+                  <th data-i18n="th_pro_actions">Ações de Pro / Não-Premium</th>
+                  <th data-i18n="th_status">Decisão Algorítmica</th>
+                  <th data-i18n="th_savings">Impacto Financeiro</th>
+                </tr>
+              </thead>
+              <tbody id="simulationTbody">
+                <!-- Injected via JavaScript -->
+              </tbody>
+            </table>
+          </div>
+
+          <div class="simulation-footer">
+            <div class="sim-stat">
+              <span class="sim-stat-label" data-i18n="sim_stat_pot">Economia Estimada por Usuário Convertido:</span>
+              <span class="sim-stat-val">~R$ 600 - R$ 900 / usuário / ano</span>
+            </div>
+            <div class="sim-stat">
+              <span class="sim-stat-label" data-i18n="sim_stat_result">Impacto Consolidado no Contrato:</span>
+              <span class="sim-stat-val text-accent font-bold">R$ 500.000,00 economizados no orçamento</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Case 2: Microsoft Fabric Monitoring & Governance Architecture -->
+      <article class="case-card featured-case glass" id="case-fabric-monitoring">
+        <div class="case-badge-bar">
+          <span class="tag-client"><i class="fa-solid fa-cloud"></i> Microsoft Fabric & Power BI Governance</span>
+          <span class="tag-impact"><i class="fa-solid fa-satellite-dish"></i> <span data-i18n="case2_tag_impact">Governança Centralizada (+70k Usuários)</span></span>
+          <span class="tag-tech">Fabric Notebooks + Lakehouse + REST APIs + Data Pipelines</span>
+        </div>
+
+        <div class="case-header">
+          <h3 class="case-title" data-i18n="case2_title">
+            Sistema de Telemetria e Governança do Tenant Power BI em Microsoft Fabric
+          </h3>
+          <p class="case-summary" data-i18n="case2_summary">
+            Desenvolvimento de uma solução completa de auditoria e observabilidade empresarial no Microsoft Fabric (workspace "Monitoring"), inspirada conceitualmente em ferramentas como o <strong>FUAM (Fabric Unified Activity Monitor)</strong>, porém simplificada e sob medida. Extração automatizada via REST APIs com Fabric Notebooks (PySpark), armazenamento em Lakehouse Delta, orquestração com Data Pipelines e modelagem dimensional para monitorar consumo, falhas de atualização e saúde de gateways.
+          </p>
+        </div>
+
+        <!-- Problem / Insight / Architecture Grid -->
+        <div class="case-pillars-grid">
+          <div class="pillar-box">
+            <div class="pillar-icon text-accent"><i class="fa-solid fa-network-wired"></i></div>
+            <h4 data-i18n="case2_p1_title">1. Observabilidade do Tenant</h4>
+            <p data-i18n="case2_p1_desc">
+              Com dezenas de capacidades e milhares de artefatos distribuídos, a gestão do tenant demandava visibilidade centralizada sobre <strong>atividades de usuários, rotinas de refresh, dataflows e status de gateways</strong>.
+            </p>
+          </div>
+
+          <div class="pillar-box">
+            <div class="pillar-icon text-indigo"><i class="fa-solid fa-code"></i></div>
+            <h4 data-i18n="case2_p2_title">2. Fabric Notebooks & APIs</h4>
+            <p data-i18n="case2_p2_desc">
+              Desenvolvimento de scripts Python/PySpark em <strong>Fabric Notebooks</strong> com paginação e autenticação OAuth2 para extrair dados brutos das Power BI Admin REST APIs e persistir em tabelas Delta no Lakehouse.
+            </p>
+          </div>
+
+          <div class="pillar-box">
+            <div class="pillar-icon text-success"><i class="fa-solid fa-diagram-project"></i></div>
+            <h4 data-i18n="case2_p3_title">3. Orquestração & Modelagem</h4>
+            <p data-i18n="case2_p3_desc">
+              Orquestração agendada via <strong>Fabric Data Pipelines</strong> alimentando um <strong>Star Schema</strong> (fatos de atividades e histórico de refreshes conectadas a dimensões de workspaces e gateways) para relatórios no Power BI.
+            </p>
+          </div>
+        </div>
+
+        <!-- Technical Breakdown & PySpark Code -->
+        <div class="case-technical-box">
+          <div class="tech-box-header">
+            <div class="tech-tabs">
+              <button class="tech-tab active" data-tab="pyspark-code" data-i18n="tab_pyspark">Fabric Notebook (PySpark)</button>
+              <button class="tech-tab" data-tab="fabric-arch" data-i18n="tab_fabric_arch">Arquitetura Lakehouse & Pipeline</button>
+              <button class="tech-tab" data-tab="data-model" data-i18n="tab_model">Modelagem Dimensional (Star Schema)</button>
+            </div>
+            <span class="tech-status-badge"><i class="fa-solid fa-server"></i> <span data-i18n="badge_fabric_active">Pipeline em Produção</span></span>
+          </div>
+
+          <!-- Tab 1: PySpark Code -->
+          <div class="tech-content active" id="tab-pyspark-code">
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span><i class="fa-brands fa-python"></i> notebook_extract_powerbi_telemetry.py (Fabric Notebook)</span>
+                <button class="btn-copy-code" id="copyPyCodeBtn" title="Copiar Código"><i class="fa-regular fa-copy"></i> Copiar</button>
+              </div>
+              <pre><code class="language-python"># =========================================================================
+# MICROSOFT FABRIC NOTEBOOK: Ingestão de Telemetria de Atividades do Tenant
+# Extração paginada da REST API 'admin/activityevents' para Lakehouse Delta
+# =========================================================================
+
+import requests
+import json
+from datetime import datetime, timedelta
+from pyspark.sql import SparkSession
+from pyspark.sql.types import StructType, StructField, StringType, IntegerType, TimestampType
+
+# 1. Configuração de Autenticação Entra ID (Service Principal)
+TENANT_ID = mssparkutils.credentials.getSecret("KeyVaultScope", "TenantId")
+CLIENT_ID = mssparkutils.credentials.getSecret("KeyVaultScope", "ClientId")
+CLIENT_SECRET = mssparkutils.credentials.getSecret("KeyVaultScope", "ClientSecret")
+
+token_url = f"https://login.microsoftonline.com/{TENANT_ID}/oauth2/v2.0/token"
+token_payload = {
+    "grant_type": "client_credentials",
+    "client_id": CLIENT_ID,
+    "client_secret": CLIENT_SECRET,
+    "scope": "https://analysis.windows.net/powerbi/api/.default"
+}
+token_response = requests.post(token_url, data=token_payload).json()
+access_token = token_response.get("access_token")
+
+headers = {
+    "Authorization": f"Bearer {access_token}",
+    "Content-Type": "application/json"
+}
+
+# 2. Extração de Eventos de Auditoria com Paginação (Continuation Token)
+audit_date = (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%dT00:00:00.000Z")
+api_url = f"https://api.powerbi.com/v1.0/myorg/admin/activityevents?startDateTime='{audit_date}'&endDateTime='{audit_date}'"
+
+all_events = []
+while api_url:
+    res = requests.get(api_url, headers=headers)
+    if res.status_code == 200:
+        data = res.json()
+        activity_entities = data.get("activityEventEntities", [])
+        all_events.extend(activity_entities)
+        
+        # Paginação via continuationToken da API do Power BI
+        continuation_token = data.get("continuationToken")
+        if continuation_token:
+            api_url = f"https://api.powerbi.com/v1.0/myorg/admin/activityevents?continuationToken='{continuation_token}'"
+        else:
+            api_url = None
+    else:
+        raise Exception(f"Erro na extração da API Power BI: {res.status_code} - {res.text}")
+
+print(f"Total de eventos extraídos para {audit_date}: {len(all_events)}")
+
+# 3. Conversão para Spark DataFrame e Carga no Fabric Lakehouse (Delta Table)
+df_events = spark.read.json(sc.parallelize([json.dumps(e) for e in all_events]))
+
+(df_events.write
+    .format("delta")
+    .mode("append")
+    .partitionBy("CreationTime")
+    .saveAsTable("MonitoringLakehouse.Fact_ActivityEvents"))
+
+print("Sucesso: Tabela Delta atualizada com sucesso no Lakehouse!")</code></pre>
+            </div>
+          </div>
+
+          <!-- Tab 2: Architecture Flow -->
+          <div class="tech-content" id="tab-fabric-arch">
+            <div class="decision-tree-container">
+              <div class="dt-step step-input">
+                <div class="dt-tag">1. Origens / APIs</div>
+                <strong>Power BI Admin REST APIs</strong>
+                <span>Activity Events, Datasets, Gateways</span>
+              </div>
+              <div class="dt-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+              <div class="dt-step step-check">
+                <div class="dt-tag">2. Computação Fabric</div>
+                <strong>Fabric Notebooks (PySpark)</strong>
+                <span>Tratamento JSON, paginação, tipagem</span>
+              </div>
+              <div class="dt-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+              <div class="dt-step step-check">
+                <div class="dt-tag">3. Armazenamento</div>
+                <strong>Fabric Lakehouse (Delta)</strong>
+                <span>Tabelas Bronze / Silver / Gold</span>
+              </div>
+              <div class="dt-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+              <div class="dt-step step-outcome">
+                <div class="dt-tag success">4. Consumo & Ação</div>
+                <strong>Power BI Governance Hub</strong>
+                <span>Monitoramento ativo de +70k usuários</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab 3: Dimensional Model (Star Schema) -->
+          <div class="tech-content" id="tab-data-model">
+            <div class="schema-visual-grid">
+              <div class="schema-card dim-card">
+                <div class="schema-header"><i class="fa-solid fa-table"></i> Dim_Workspaces</div>
+                <ul>
+                  <li><code>WorkspaceId (PK)</code></li>
+                  <li><code>WorkspaceName</code></li>
+                  <li><code>CapacityId (FK)</code></li>
+                  <li><code>IsPremiumCapacity (1/0)</code></li>
+                  <li><code>State (Active/Deleted)</code></li>
+                </ul>
+              </div>
+
+              <div class="schema-card fact-card">
+                <div class="schema-header highlight"><i class="fa-solid fa-cubes-stacked"></i> Fact_ActivityEvents</div>
+                <ul>
+                  <li><code>ActivityId (PK)</code></li>
+                  <li><code>UserEmail (FK)</code></li>
+                  <li><code>WorkspaceId (FK)</code></li>
+                  <li><code>ActivityType (ViewReport, etc)</code></li>
+                  <li><code>ArtifactName</code></li>
+                  <li><code>CreationDate (FK)</code></li>
+                </ul>
+              </div>
+
+              <div class="schema-card fact-card">
+                <div class="schema-header highlight"><i class="fa-solid fa-rotate"></i> Fact_DatasetRefreshes</div>
+                <ul>
+                  <li><code>RefreshId (PK)</code></li>
+                  <li><code>DatasetId (FK)</code></li>
+                  <li><code>WorkspaceId (FK)</code></li>
+                  <li><code>GatewayId (FK)</code></li>
+                  <li><code>Status (Completed/Failed)</code></li>
+                  <li><code>DurationSeconds</code></li>
+                </ul>
+              </div>
+
+              <div class="schema-card dim-card">
+                <div class="schema-header"><i class="fa-solid fa-network-wired"></i> Dim_Gateways</div>
+                <ul>
+                  <li><code>GatewayId (PK)</code></li>
+                  <li><code>GatewayName</code></li>
+                  <li><code>ClusterStatus (Online/Offline)</code></li>
+                  <li><code>MachineName</code></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Simulation Simulator: Tenant Health & Refresh Monitor -->
+        <div class="simulation-section">
+          <div class="simulation-header">
+            <div>
+              <h4 class="sim-title" data-i18n="sim2_title"><i class="fa-solid fa-gauge-high text-accent"></i> Painel de Observabilidade do Tenant (Simulado)</h4>
+              <p class="sim-desc" data-i18n="sim2_desc">
+                Simulação dos dados consolidados no Lakehouse de monitoramento: acompanhe o status de atualização de datasets críticos, telemetria de gateways e volume de atividades diárias.
+              </p>
+            </div>
+            <div class="sim-filters">
+              <button class="sim-filter2-btn active" data-filter="all" data-i18n="sim2_filter_all">Todos os Datasets (8)</button>
+              <button class="sim-filter2-btn" data-filter="Completed" data-i18n="sim2_filter_ok">✅ Sucesso (6)</button>
+              <button class="sim-filter2-btn" data-filter="Failed" data-i18n="sim2_filter_fail">⚠️ Falhas (2)</button>
+            </div>
+          </div>
+
+          <!-- Quick Metrics Bar -->
+          <div class="telemetry-mini-stats">
+            <div class="t-stat">
+              <span class="t-label" data-i18n="t_kpi_events">Eventos Registrados (Hoje):</span>
+              <span class="t-val text-accent font-bold">482.910</span>
+            </div>
+            <div class="t-stat">
+              <span class="t-label" data-i18n="t_kpi_rate">Taxa de Sucesso de Refresh:</span>
+              <span class="t-val text-success font-bold">97.8%</span>
+            </div>
+            <div class="t-stat">
+              <span class="t-label" data-i18n="t_kpi_gateways">Gateways Online:</span>
+              <span class="t-val text-success font-bold">8 / 8 Clusters</span>
+            </div>
+            <div class="t-stat">
+              <span class="t-label" data-i18n="t_kpi_lakehouse">Armazenamento Lakehouse:</span>
+              <span class="t-val font-bold">Delta Parquet</span>
+            </div>
+          </div>
+
+          <div class="sim-table-responsive">
+            <table class="sim-table" id="refreshMonitoringTable">
+              <thead>
+                <tr>
+                  <th data-i18n="th2_dataset">Conjunto de Dados (Dataset)</th>
+                  <th data-i18n="th2_workspace">Workspace / Capacidade</th>
+                  <th data-i18n="th2_start">Início da Rotina</th>
+                  <th data-i18n="th2_duration">Duração</th>
+                  <th data-i18n="th2_gateway">Cluster de Gateway</th>
+                  <th data-i18n="th2_status">Status</th>
+                  <th data-i18n="th2_action">Ação Automatizada</th>
+                </tr>
+              </thead>
+              <tbody id="refreshMonitoringTbody">
+                <!-- Injected via JavaScript -->
+              </tbody>
+            </table>
+          </div>
+
+          <div class="simulation-footer">
+            <div class="sim-stat">
+              <span class="sim-stat-label" data-i18n="sim2_stat_impact">Orquestrador:</span>
+              <span class="sim-stat-val text-accent">Fabric Data Pipelines (Execução Programada a cada 2h)</span>
+            </div>
+            <div class="sim-stat">
+              <span class="sim-stat-label" data-i18n="sim2_stat_result">Benefício de Negócio:</span>
+              <span class="sim-stat-val text-success font-bold">Zero surpresas operacionais para diretoria e times de negócio</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Interactive FinOps ROI Calculator -->
+      <div class="calculator-card glass" id="finops-calculator">
+        <div class="calc-header">
+          <span class="badge" data-i18n="calc_badge">Ferramenta Interativa FinOps</span>
+          <h3 class="calc-title" data-i18n="calc_title">Simulador de Economia de Licenças Power BI</h3>
+          <p class="calc-subtitle" data-i18n="calc_subtitle">
+            Veja o impacto financeiro potencial que a mesma metodologia aplicada na VALE pode gerar na sua organização.
+          </p>
+        </div>
+
+        <div class="calc-grid">
+          <div class="calc-controls">
+            <div class="slider-group">
+              <div class="slider-header">
+                <label for="proLicensesInput" data-i18n="calc_label_licenses">Quantidade de Licenças Pro Atuais:</label>
+                <span class="slider-val" id="valLicenses">2.500</span>
+              </div>
+              <input type="range" id="proLicensesInput" min="100" max="10000" step="100" value="2500" class="custom-range" />
+            </div>
+
+            <div class="slider-group">
+              <div class="slider-header">
+                <label for="viewerPercentInput" data-i18n="calc_label_viewers">% Estimada de Usuários Apenas Visualizadores (em Premium):</label>
+                <span class="slider-val" id="valPercent">40%</span>
+              </div>
+              <input type="range" id="viewerPercentInput" min="10" max="85" step="5" value="40" class="custom-range" />
+            </div>
+
+            <div class="calc-note">
+              <i class="fa-solid fa-circle-info text-accent"></i>
+              <span data-i18n="calc_note_text">Considera o custo de licença Power BI Pro (~US$ 10 - US$ 14 / mês / usuário) convertido com base nas regras de elegibilidade da capacidade Premium.</span>
+            </div>
+          </div>
+
+          <div class="calc-results-box">
+            <div class="calc-result-kpi">
+              <div class="res-label" data-i18n="calc_res_users">Usuários Convertíveis para Licença Free:</div>
+              <div class="res-num text-accent" id="resUsersCount">1.000 usuários</div>
+            </div>
+
+            <div class="calc-result-kpi highlight-bg">
+              <div class="res-label" data-i18n="calc_res_savings_brl">Economia Anual Estimada (BRL):</div>
+              <div class="res-num text-success font-bold" id="resSavingsBRL">R$ 600.000 / ano</div>
+              <div class="res-sub text-muted" id="resSavingsUSD">≈ $120.000 USD / ano</div>
+            </div>
+
+            <a href="#contact" class="btn btn-primary" style="width: 100%; margin-top: 1rem;" data-i18n="calc_cta">
+              <i class="fa-solid fa-calculator"></i>
+              <span>Avaliar Potencial da Minha Empresa</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grid of Additional Career Cases (Cases 3 & 4) -->
+      <div class="case-additional-grid">
+        <!-- Case 3: Zygon Marketing BI -->
+        <article class="case-mini-card glass" id="case-zygon">
+          <div class="case-badge-bar">
+            <span class="tag-client"><i class="fa-solid fa-bullhorn"></i> Zygon Marketing Analytics</span>
+            <span class="tag-impact"><i class="fa-solid fa-chart-line"></i> iFood • O Boticário • Cencosud</span>
+          </div>
+          <h3 class="mini-case-title" data-i18n="case3_title">
+            Pipelines de Performance & Dashboards de Mídia Multicanal (ROAS / CPA)
+          </h3>
+          <p class="mini-case-desc" data-i18n="case3_desc">
+            Extração automatizada de Google Ads e Facebook Ads via Supermetrics e Tableau Prep. Criação de modelos dimensionais e dashboards no Figma & Power BI monitorando funil completo de conversão, ROAS e custo de aquisição.
+          </p>
+          <div class="mini-case-highlights">
+            <div class="mini-kpi">
+              <span class="mini-kpi-val">+15</span>
+              <span class="mini-kpi-lbl" data-i18n="case3_kpi1">Fontes & Canais Consolidados</span>
+            </div>
+            <div class="mini-kpi">
+              <span class="mini-kpi-val">100%</span>
+              <span class="mini-kpi-lbl" data-i18n="case3_kpi2">Figma Data UX/UI</span>
+            </div>
+          </div>
+          <div class="tag-row" style="margin-top: 1.2rem;">
+            <span class="tech-tag">Supermetrics</span>
+            <span class="tech-tag">Tableau Prep</span>
+            <span class="tech-tag">Power BI</span>
+            <span class="tech-tag">Google Ads</span>
+            <span class="tech-tag">Figma</span>
+          </div>
+        </article>
+
+        <!-- Case 4: Accenture / Johnson & Johnson US -->
+        <article class="case-mini-card glass" id="case-accenture">
+          <div class="case-badge-bar">
+            <span class="tag-client"><i class="fa-solid fa-hospital-user"></i> Accenture / J&J US</span>
+            <span class="tag-impact"><i class="fa-solid fa-earth-americas"></i> Stakeholders Globais US</span>
+          </div>
+          <h3 class="mini-case-title" data-i18n="case4_title">
+            Otimização de Consultas SQL no Amazon Athena & Governança de Dashboards
+          </h3>
+          <p class="mini-case-desc" data-i18n="case4_desc">
+            Sustentação e evolução de soluções analíticas internacionais com Power BI e Tableau. Resolução de gargalos de performance e integridade em consultas SQL sobre o data lake em Amazon Athena com entrega ágil em Scrum.
+          </p>
+          <div class="mini-case-highlights">
+            <div class="mini-kpi">
+              <span class="mini-kpi-val text-accent">AWS</span>
+              <span class="mini-kpi-lbl" data-i18n="case4_kpi1">Athena & S3 Parquet</span>
+            </div>
+            <div class="mini-kpi">
+              <span class="mini-kpi-val text-success">Agile</span>
+              <span class="mini-kpi-lbl" data-i18n="case4_kpi2">Sprints Internacionais</span>
+            </div>
+          </div>
+          <div class="tag-row" style="margin-top: 1.2rem;">
+            <span class="tech-tag">Amazon Athena</span>
+            <span class="tech-tag">SQL Tuning</span>
+            <span class="tech-tag">Power BI</span>
+            <span class="tech-tag">Tableau</span>
+            <span class="tech-tag">DBeaver</span>
+          </div>
+        </article>
+      </div>
+
+      <!-- Placeholder Card: Next Projects Incoming -->
+      <div class="next-projects-box glass">
+        <div class="next-projects-icon"><i class="fa-solid fa-circle-nodes"></i></div>
+        <div class="next-projects-content">
+          <h3 data-i18n="next_proj_title">Mais Cases e Projetos em Produção</h3>
+          <p data-i18n="next_proj_desc">
+            Novos cases de pipelines ETL com Tableau Prep, integrações na nuvem AWS Athena, Dashboards no Figma para grandes players (Johnson & Johnson, iFood, O Boticário) e automações com Power Automate sendo catalogados.
+          </p>
+        </div>
+        <a href="#contact" class="btn btn-secondary" data-i18n="next_proj_btn">Solicitar Apresentação Técnica</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Professional Experience Timeline -->
+  <section class="section experience-section" id="experience">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge" data-i18n="exp_badge">Trajetória</span>
+        <h2 class="section-title" data-i18n="exp_title">Experiência Profissional</h2>
+      </div>
+
+      <div class="timeline">
+        <!-- Exp 1: Accenture / J&J -->
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content glass">
+            <div class="timeline-header">
+              <div>
+                <h3 class="role-title" data-i18n="exp1_role">Analista de Dados</h3>
+                <span class="company-name">Accenture (Remoto) • <span class="client-pill">Cliente: Johnson & Johnson US</span></span>
+              </div>
+              <span class="period-badge" data-i18n="exp1_period">11/2025 - Presente</span>
+            </div>
+            <ul class="exp-bullet-list">
+              <li data-i18n="exp1_b1">Desenvolvimento de soluções de Business Intelligence com Power BI e Tableau para apoiar stakeholders globais em tomadas de decisão estratégicas.</li>
+              <li data-i18n="exp1_b2">Otimização e depuração de consultas SQL no Amazon Athena, garantindo integridade e conformidade de visualização de dados.</li>
+              <li data-i18n="exp1_b3">Refinamento de arquitetura de layouts e experiência do usuário (UX) em dashboards corporativos.</li>
+              <li data-i18n="exp1_b4">Atuação ágil em sprints contínuos, assegurando entregas iterativas de alto valor.</li>
+            </ul>
+            <div class="tag-row">
+              <span class="tech-tag">SQL</span>
+              <span class="tech-tag">Power BI</span>
+              <span class="tech-tag">Amazon Athena</span>
+              <span class="tech-tag">Tableau</span>
+              <span class="tech-tag">DBeaver</span>
+              <span class="tech-tag">Agile / Scrum</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Exp 2: DXC Technology / VALE -->
+        <div class="timeline-item">
+          <div class="timeline-marker highlight"></div>
+          <div class="timeline-content glass">
+            <div class="timeline-header">
+              <div>
+                <h3 class="role-title" data-i18n="exp2_role">Analista de Dados</h3>
+                <span class="company-name">DXC Technology (Remoto) • <span class="client-pill">Cliente: VALE</span></span>
+              </div>
+              <span class="period-badge" data-i18n="exp2_period">10/2023 - 10/2025</span>
+            </div>
+            <ul class="exp-bullet-list">
+              <li data-i18n="exp2_b1"><strong>Liderança do projeto de otimização de licenças Power BI</strong> que economizou cerca de R$ 500.000 em 2025 através de auditoria SQL de atividades em capacidades Premium.</li>
+              <li data-i18n="exp2_b2">Gestão e governança de ambiente Microsoft Fabric, suportando múltiplas capacidades premium com mais de 70.000 usuários ativos.</li>
+              <li data-i18n="exp2_b3">Desenvolvimento de fluxos automatizados com Power Automate, eliminando processos e intervenções manuais repetitivas.</li>
+              <li data-i18n="exp2_b4">Implantação de modelos semânticos escaláveis em produção aplicando as melhores práticas de Azure Analysis Services, Power BI e SQL.</li>
+            </ul>
+            <div class="tag-row">
+              <span class="tech-tag">SQL</span>
+              <span class="tech-tag">Power BI</span>
+              <span class="tech-tag">Microsoft Fabric</span>
+              <span class="tech-tag">Azure Analysis Services</span>
+              <span class="tech-tag">Power Automate</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Exp 3: Sinergia -->
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content glass">
+            <div class="timeline-header">
+              <div>
+                <h3 class="role-title" data-i18n="exp3_role">Analista de Dados</h3>
+                <span class="company-name">Sinergia (Remoto)</span>
+              </div>
+              <span class="period-badge" data-i18n="exp3_period">08/2022 - 07/2023</span>
+            </div>
+            <ul class="exp-bullet-list">
+              <li data-i18n="exp3_b1">Construção de soluções analíticas em Power BI voltadas para aumento de eficiência operacional e identificação de gargalos.</li>
+              <li data-i18n="exp3_b2">Prototipagem de dashboards no Figma focados em usabilidade e redução de ruído visual.</li>
+              <li data-i18n="exp3_b3">Pipelines de ingestão e transformação ETL escaláveis com Power Query e linguagem M.</li>
+              <li data-i18n="exp3_b4">Automações com Power Automate reduzindo trabalho manual nas rotinas de dados da operação.</li>
+            </ul>
+            <div class="tag-row">
+              <span class="tech-tag">Power BI</span>
+              <span class="tech-tag">Power Query</span>
+              <span class="tech-tag">Linguagem M</span>
+              <span class="tech-tag">DAX</span>
+              <span class="tech-tag">Figma</span>
+              <span class="tech-tag">Power Automate</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Exp 4: Zygon -->
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content glass">
+            <div class="timeline-header">
+              <div>
+                <h3 class="role-title" data-i18n="exp4_role">Analista de Dados (Marketing Analytics)</h3>
+                <span class="company-name">Zygon (Remoto) • <span class="client-pill">Clientes: iFood, O Boticário, Cencosud</span></span>
+              </div>
+              <span class="period-badge" data-i18n="exp4_period">12/2021 - 08/2022</span>
+            </div>
+            <ul class="exp-bullet-list">
+              <li data-i18n="exp4_b1">Extração e pipelines de dados de mídias de performance (Google Ads, Facebook Ads) via Supermetrics e Tableau Prep.</li>
+              <li data-i18n="exp4_b2">Criação de dashboards em Power BI e Tableau monitorando KPIs críticos: ROAS, CPA, CAC, impressões, cliques e conversões.</li>
+              <li data-i18n="exp4_b3">Prototipação visual no Figma em conjunto com times multidisciplinares para traduzir métricas complexas em painéis executivos.</li>
+            </ul>
+            <div class="tag-row">
+              <span class="tech-tag">Power BI</span>
+              <span class="tech-tag">Tableau Prep</span>
+              <span class="tech-tag">Google Analytics</span>
+              <span class="tech-tag">Supermetrics</span>
+              <span class="tech-tag">Figma</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education & Certifications -->
+  <section class="section edu-section" id="education">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge" data-i18n="edu_badge">Formação & Certificações</span>
+        <h2 class="section-title" data-i18n="edu_title">Educação Contínua</h2>
+      </div>
+
+      <div class="edu-grid">
+        <div class="edu-card glass">
+          <div class="edu-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+          <div class="edu-info">
+            <h3 data-i18n="edu_degree">Graduação em Sistemas de Informação</h3>
+            <span class="edu-institution">Estácio, Pernambuco, Brasil • 2022 - 2026</span>
+            <p data-i18n="edu_desc">Ênfase em arquitetura de dados, modelagem de banco de dados e Python para análise de dados.</p>
+          </div>
+        </div>
+
+        <div class="edu-card glass">
+          <div class="edu-icon"><i class="fa-solid fa-award"></i></div>
+          <div class="edu-info">
+            <h3 data-i18n="cert_title">Certificações de Mercado</h3>
+            <ul class="cert-list">
+              <li><strong>Fundamentos de Engenharia de Dados</strong> — Data Science Academy (2025)</li>
+              <li><strong>Databricks</strong> — Udemy (2024)</li>
+              <li><strong>SQL Server</strong> — DIO (2022)</li>
+              <li><strong>Business Intelligence</strong> — FIAP (2022)</li>
+              <li><strong>Introducing DAX</strong> — SQLBI (Marco Russo & Alberto Ferrari) (2021)</li>
+              <li><strong>Microsoft Power BI for Data Science</strong> — Data Science Academy (2021)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Footer -->
+  <section class="section contact-section" id="contact">
+    <div class="container contact-box glass">
+      <div class="contact-header">
+        <span class="badge" data-i18n="contact_badge">Vamos Conversar</span>
+        <h2 class="contact-title" data-i18n="contact_title">Pronto para gerar valor através dos dados da sua empresa?</h2>
+        <p class="contact-subtitle" data-i18n="contact_subtitle">
+          Disponível para posições remotas, consultoria em Governança/FinOps de BI, arquitetura no Microsoft Fabric e desenvolvimento de dashboards de alta performance.
+        </p>
+      </div>
+
+      <div class="contact-links">
+        <a href="mailto:matheus.srf@gmail.com" class="contact-item">
+          <div class="contact-icon"><i class="fa-regular fa-envelope"></i></div>
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-val">matheus.srf@gmail.com</div>
+          </div>
+        </a>
+
+        <a href="https://www.linkedin.com/in/frnandesmatheus" target="_blank" rel="noopener" class="contact-item">
+          <div class="contact-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+          <div>
+            <div class="contact-label">LinkedIn</div>
+            <div class="contact-val">linkedin.com/in/frnandesmatheus</div>
+          </div>
+        </a>
+
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div>
+            <div class="contact-label" data-i18n="contact_loc_label">Localização</div>
+            <div class="contact-val">Recife, PE - Brasil (Remoto)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span id="currentYear">2026</span> Matheus Fernandes. <span data-i18n="footer_copy">Construído com foco em alta performance e arquitetura de dados limpa.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
