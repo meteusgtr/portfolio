@@ -1,597 +1,353 @@
 /* =========================================================================
-   MATHEUS FERNANDES - DATA & BI PORTFOLIO
-   Interactive Engine, i18n Translation & Synthetic Data Simulator
+   MATHEUS FERNANDES - PORTFOLIO LOGIC & I18N
+   Clean, Human, Grounded Translations & Data Previews
    ========================================================================= */
 
-// --- 1. TRANSLATION DICTIONARY (PT-BR / EN-US) ---
 const translations = {
   pt: {
-    // Nav
-    nav_about: "Sobre",
-    nav_skills: "Habilidades",
-    nav_projects: "Projetos & Cases",
+    header_role: "Analista de Dados & BI",
+    nav_projects: "Projetos",
     nav_experience: "Experiência",
+    nav_skills: "Habilidades",
+    nav_about: "Sobre",
     nav_contact: "Contato",
-    cta_contact: "Falar Comigo",
 
-    // Hero
-    hero_pill: "Disponível para novos desafios em Dados & BI",
-    hero_greeting: "Olá, eu sou",
-    hero_role: "Analista de Dados & Business Intelligence | Especialista em Governança, Power BI, SQL & Microsoft Fabric",
-    hero_bio: "Transformo dados complexos em eficiência financeira e decisões de alto impacto. +4 anos de experiência atendendo grandes contas corporativas como <strong>VALE</strong>, <strong>Johnson & Johnson</strong>, <strong>iFood</strong> e <strong>O Boticário</strong>. Economia comprovada de mais de <strong>R$ 500 mil/ano</strong> em infraestrutura de dados e governança de capacidades com +70 mil usuários.",
-    stat_savings: "Economia Anual em Otimização de Custos",
-    stat_users: "Usuários Ativos em Ambientes Gerenciados",
-    stat_exp: "Experiência com BI, ETL & Data Pipelines",
-    stat_capacities: "Capacidades Premium Monitoradas",
-    hero_btn_cases: "Explorar Cases & Simulações",
+    intro_title: "Analista de Dados & Business Intelligence",
+    intro_bio: "Trabalho com modelagem de dados, SQL, Power BI e Microsoft Fabric. Tenho mais de 4 anos de experiência construindo relatórios executivos, automações e pipelines analíticos, com passagens por projetos na Vale, Johnson & Johnson, iFood e O Boticário.",
 
-    // About
-    about_badge: "Sobre Mim",
-    about_title: "Engenharia de Análise com Foco no Negócio",
-    about_subtitle: "Unindo modelagem dimensional, governança e mentalidade analítica para gerar ROI real em dados corporativos.",
-    about_col1_title: "Governança & FinOps de BI",
-    about_col1_desc: "Auditoria profunda de logs de atividade (Activity Log / Unified Audit Log), mapeamento de consumo de licenças e alocação estratégica de recursos em Microsoft Fabric e Power BI Premium para cortar custos sem degradar a experiência.",
-    about_col2_title: "SQL Avançado & Pipelines ETL",
-    about_col2_desc: "Consultas otimizadas, agregação analítica com HAVING/Window Functions, modelagem Star Schema em SQL Server, Azure Analysis Services, Athena e Databricks para ingestão e transformação de alta performance.",
-    about_col3_title: "Dashboards no Figma & Power BI",
-    about_col3_desc: "Criação de interfaces orientadas ao usuário (UX/UI para Analytics) prototipadas no Figma e implementadas no Power BI com DAX robusto, garantindo que stakeholders tomem decisões claras em segundos.",
+    heading_projects: "Projetos & Casos Práticos",
+    projects_disclaimer: "Por questões de privacidade e sigilo corporativo, os dados exibidos nas demonstrações abaixo foram recriados com bases sintéticas, preservando a lógica técnica e o modelo dimensional aplicados em produção.",
 
-    // Skills
-    skills_badge: "Stack Técnica",
-    skills_title: "Tecnologias & Ferramentas",
-    skill_group_bi: "Business Intelligence & Visualização",
-    skill_group_data: "Bancos de Dados & Engenharia",
-    skill_group_auto: "Automação & Governança",
+    // P1 Vale
+    p1_impact: "~R$ 500.000 de economia anual (2025)",
+    p1_title: "Otimização de Licenças Power BI via Auditoria de Logs em Capacidades Premium",
+    p1_context_h: "Contexto & Problema",
+    p1_context_p: "A empresa mantinha 12 capacidades Premium ativas e arcava simultaneamente com mais de 6.000 licenças pagas do Power BI Pro. Isso gerava um custo recorrente muito elevado. Como os relatórios publicados em workspaces alocados em capacidades Premium não exigem licença Pro para visualização (usuários com licença gratuita podem consumir normalmente), surgiu a oportunidade de reduzir licenças sem prejudicar ninguém.",
+    p1_solution_h: "O que eu fiz",
+    p1_solution_p: "Usando SQL nos logs de auditoria do tenant, filtrei os usuários que possuíam licença Pro e analisei todo o histórico de atividades. A lógica consistia em identificar quem consumia exclusivamente relatórios em capacidades Premium (evento <code>ViewReport</code>). Se o usuário tivesse realizado qualquer ação que dependesse de Pro (editar relatório, publicar, criar conjunto de dados ou acessar workspace não-premium), ele continuava com a licença Pro. Quem só visualizava relatórios em Premium foi marcado para downgrade (Free).",
+    p1_sim_title: "Amostra da Base Analisada (Dados Fictícios)",
+    p1_sim_sub: "Simulação demonstrando a lógica de classificação aplicada sobre os usuários",
 
-    // Projects Header
-    projects_badge: "Portfólio de Cases",
-    projects_title: "Projetos em Destaque & Simulações Interativas",
-    projects_subtitle: "Por motivos de conformidade e sigilo corporativo (LGPD/NDAs), os dados reais foram anonimizados e recriados em uma simulação interativa que preserva fielmente a lógica analítica e arquitetural aplicada.",
+    // P2 Fabric
+    p2_impact: "Ambiente com +70.000 usuários",
+    p2_title: "Sistema de Monitoramento do Tenant Power BI em Microsoft Fabric (Workspace Monitoring)",
+    p2_context_h: "Contexto & Objetivo",
+    p2_context_p: "Para viabilizar análises como a de otimização de licenças e ter visibilidade geral da saúde do tenant, criei um workspace chamado <code>Monitoring</code> no Microsoft Fabric. O objetivo era centralizar informações sobre atividades de usuários, inventário de workspaces, capacidades, rotinas de atualização de datasets, dataflows e status de gateways. O conceito foi inspirado no FUAM (Fabric Unified Activity Monitor), mas adaptado de forma direta e simplificada para a necessidade da operação.",
+    p2_solution_h: "Arquitetura da Solução",
+    p2_solution_p: "Construí notebooks em Python/PySpark no Fabric para fazer as requisições na API REST administrativa do Power BI, lidando com autenticação e paginação de dados. O retorno das APIs é salvo em tabelas Delta dentro de um Lakehouse. Toda a execução dos notebooks foi orquestrada por meio de um Data Pipeline agendado no Fabric, e os dados foram estruturados em um modelo dimensional (esquema estrela) para alimentar os relatórios de governança.",
+    p2_sim_title: "Monitoramento de Datasets & Gateways (Simulação de Dados)",
+    p2_sim_sub: "Exemplo das informações consolidadas no Lakehouse para acompanhamento de falhas e durações",
 
-    // Case 1: VALE
-    case1_tag_impact: "Economia: R$ 500.000 / ano",
-    case1_title: "Otimização Inteligente de Licenças Power BI via Auditoria de Logs em Capacidades Premium",
-    case1_summary: "Auditoria avançada de telemetria sobre mais de 6.000 licenças pagas e 12 capacidades Premium, identificando padrões estritos de consumo para realizar downgrades seguros (Pro para Free) com zero interrupção operacional.",
-    case1_p1_title: "1. O Desafio de Custos",
-    case1_p1_desc: "A organização mantinha 12 capacidades Premium dedicadas e arcava simultaneamente com <strong>+6.000 licenças Pro ativas</strong>. Isso gerava um custo de licenciamento anual exorbitante e redundante.",
-    case1_p2_title: "2. A Regra Arquitetural",
-    case1_p2_desc: "Em workspaces hospedados em <strong>Capacidades Premium</strong>, consumidores de relatórios <strong>não precisam de licença Pro</strong>; uma licença Free (gratuita) é suficiente para visualizar e interagir com relatórios.",
-    case1_p3_title: "3. O Critério Estrito (SQL)",
-    case1_p3_desc: "Um usuário só era elegível se <strong>100%</strong> das suas atividades fossem <code>ViewReport</code> dentro de capacidades Premium. Qualquer atividade de edição, criação ou acesso a workspace compartilhado mantinha o usuário como Pro.",
-    tab_sql: "Lógica da Consulta SQL",
-    tab_arch: "Fluxo de Tomada de Decisão",
-    badge_validated: "Lógica Validada em Produção",
+    // Filters
+    filter_all: "Todos",
+    filter_eligible: "Elegíveis (Downgrade)",
+    filter_keep: "Manter Pro",
+    filter_ok: "Concluídos",
+    filter_fail: "Falhas",
 
-    // Case 2: Microsoft Fabric Monitoring & Governance
-    case2_tag_impact: "Governança Centralizada (+70k Usuários)",
-    case2_title: "Sistema de Telemetria e Governança do Tenant Power BI em Microsoft Fabric",
-    case2_summary: "Desenvolvimento de uma solução completa de auditoria e observabilidade empresarial no Microsoft Fabric (workspace 'Monitoring'), inspirada conceitualmente em ferramentas como o <strong>FUAM (Fabric Unified Activity Monitor)</strong>, porém simplificada e sob medida. Extração automatizada via REST APIs com Fabric Notebooks (PySpark), armazenamento em Lakehouse Delta, orquestração com Data Pipelines e modelagem dimensional.",
-    case2_p1_title: "1. Observabilidade do Tenant",
-    case2_p1_desc: "Com dezenas de capacidades e milhares de artefatos distribuídos, a gestão do tenant demandava visibilidade centralizada sobre <strong>atividades de usuários, rotinas de refresh, dataflows e status de gateways</strong>.",
-    case2_p2_title: "2. Fabric Notebooks & APIs",
-    case2_p2_desc: "Desenvolvimento de scripts Python/PySpark em <strong>Fabric Notebooks</strong> com paginação e autenticação OAuth2 para extrair dados brutos das Power BI Admin REST APIs e persistir em tabelas Delta no Lakehouse.",
-    case2_p3_title: "3. Orquestração & Modelagem",
-    case2_p3_desc: "Orquestração agendada via <strong>Fabric Data Pipelines</strong> alimentando um <strong>Star Schema</strong> (fatos de atividades e histórico de refreshes conectadas a dimensões) para relatórios no Power BI.",
-    tab_pyspark: "Fabric Notebook (PySpark)",
-    tab_fabric_arch: "Arquitetura Lakehouse & Pipeline",
-    tab_model: "Modelagem Dimensional (Star Schema)",
-    badge_fabric_active: "Pipeline em Produção",
+    // Secondary Cases
+    p3_title: "Sustentação de BI Global & Otimização de Queries no Athena",
+    p3_desc: "Manutenção e melhorias em relatórios de Power BI e Tableau para apoiar stakeholders nos Estados Unidos. Otimização e correção de consultas SQL executadas no Amazon Athena para garantir dados corretos e boa performance de carregamento.",
+    p4_title: "Pipelines e Dashboards de Performance de Marketing",
+    p4_desc: "Extração de dados de Google Ads e Facebook Ads via Supermetrics e Tableau Prep. Construção de dashboards no Power BI e Tableau acompanhando KPIs de mídia (ROAS, conversões, cliques e impressões), com prototipação de telas no Figma.",
 
-    // Case 2 Simulation
-    sim2_title: "Painel de Observabilidade do Tenant (Simulado)",
-    sim2_desc: "Simulação dos dados consolidados no Lakehouse de monitoramento: acompanhe o status de atualização de datasets críticos, telemetria de gateways e volume de atividades diárias.",
-    sim2_filter_all: "Todos os Datasets (8)",
-    sim2_filter_ok: "✅ Sucesso (6)",
-    sim2_filter_fail: "⚠️ Falhas (2)",
-    t_kpi_events: "Eventos Registrados (Hoje):",
-    t_kpi_rate: "Taxa de Sucesso de Refresh:",
-    t_kpi_gateways: "Gateways Online:",
-    t_kpi_lakehouse: "Armazenamento Lakehouse:",
-    th2_dataset: "Conjunto de Dados (Dataset)",
-    th2_workspace: "Workspace / Capacidade",
-    th2_start: "Início da Rotina",
-    th2_duration: "Duração",
-    th2_gateway: "Cluster de Gateway",
-    th2_status: "Status",
-    th2_action: "Ação Automatizada",
-    sim2_stat_impact: "Orquestrador:",
-    sim2_stat_result: "Benefício de Negócio:",
-
-    // FinOps Calculator
-    calc_badge: "Ferramenta Interativa FinOps",
-    calc_title: "Simulador de Economia de Licenças Power BI",
-    calc_subtitle: "Veja o impacto financeiro potencial que a mesma metodologia aplicada na VALE pode gerar na sua organização.",
-    calc_label_licenses: "Quantidade de Licenças Pro Atuais:",
-    calc_label_viewers: "% Estimada de Usuários Apenas Visualizadores (em Premium):",
-    calc_note_text: "Considera o custo de licença Power BI Pro (~US$ 10 - US$ 14 / mês / usuário) convertido com base nas regras de elegibilidade da capacidade Premium.",
-    calc_res_users: "Usuários Convertíveis para Licença Free:",
-    calc_res_savings_brl: "Economia Anual Estimada (BRL):",
-    calc_cta: "Avaliar Potencial da Minha Empresa",
-
-    // Case 3: Zygon Marketing
-    case3_title: "Pipelines de Performance & Dashboards de Mídia Multicanal (ROAS / CPA)",
-    case3_desc: "Extração automatizada de Google Ads e Facebook Ads via Supermetrics e Tableau Prep. Criação de modelos dimensionais e dashboards no Figma & Power BI monitorando funil completo de conversão, ROAS e custo de aquisição.",
-    case3_kpi1: "Fontes & Canais Consolidados",
-    case3_kpi2: "Figma Data UX/UI",
-
-    // Case 4: Accenture / J&J
-    case4_title: "Otimização de Consultas SQL no Amazon Athena & Governança de Dashboards",
-    case4_desc: "Sustentação e evolução de soluções analíticas internacionais com Power BI e Tableau. Resolução de gargalos de performance e integridade em consultas SQL sobre o data lake em Amazon Athena com entrega ágil em Scrum.",
-    case4_kpi1: "Athena & S3 Parquet",
-    case4_kpi2: "Sprints Internacionais",
-
-    // Simulation
-    sim_title: "Simulação Interativa de Dados Sintéticos",
-    sim_desc: "Teste a lógica de auditoria em tempo real com este dataset representativo (10 exemplos simulados). Clique nos filtros para verificar a classificação automática.",
-    sim_filter_all: "Todos (10)",
-    sim_filter_eligible: "✅ Elegíveis para Free",
-    sim_filter_keep: "🔒 Manter Licença Pro",
-    th_user: "Usuário Simulado",
-    th_dept: "Departamento",
-    th_license: "Licença Atual",
-    th_views: "Visualizações (Premium)",
-    th_pro_actions: "Ações de Pro / Não-Premium",
-    th_status: "Decisão Algorítmica",
-    th_savings: "Impacto Financeiro",
-    sim_stat_pot: "Economia Estimada por Usuário Convertido:",
-    sim_stat_result: "Impacto Consolidado no Contrato:",
-
-    // Next Projects
-    next_proj_title: "Mais Cases e Projetos em Produção",
-    next_proj_desc: "Novos cases de pipelines ETL com Tableau Prep, integrações na nuvem AWS Athena, Dashboards no Figma para grandes players (Johnson & Johnson, iFood, O Boticário) e automações com Power Automate sendo catalogados.",
-    next_proj_btn: "Solicitar Apresentação Técnica",
-
-    // Experience
-    exp_badge: "Trajetória",
-    exp_title: "Experiência Profissional",
+    // Timeline
+    heading_experience: "Experiência Profissional",
     exp1_role: "Analista de Dados",
     exp1_period: "11/2025 - Presente",
-    exp1_b1: "Desenvolvimento de soluções de Business Intelligence com Power BI e Tableau para apoiar stakeholders globais em tomadas de decisão estratégicas.",
-    exp1_b2: "Otimização e depuração de consultas SQL no Amazon Athena, garantindo integridade e conformidade de visualização de dados.",
-    exp1_b3: "Refinamento de arquitetura de layouts e experiência do usuário (UX) em dashboards corporativos.",
-    exp1_b4: "Atuação ágil em sprints contínuos, assegurando entregas iterativas de alto valor.",
+    exp1_b1: "Desenvolvimento de soluções de BI com Power BI e Tableau para tomadas de decisão de stakeholders nos EUA.",
+    exp1_b2: "Ajuste e correção de consultas SQL no banco de dados Athena para visualização correta de relatórios.",
+    exp1_b3: "Melhoria de layout e usabilidade em dashboards corporativos existentes.",
+    exp1_b4: "Atuação em time ágil com entregas contínuas em sprints.",
 
     exp2_role: "Analista de Dados",
-    exp2_period: "10/2023 - 10/2025",
-    exp2_b1: "Liderança do projeto de otimização de licenças Power BI que economizou cerca de R$ 500.000 em 2025 através de auditoria SQL de atividades em capacidades Premium.",
-    exp2_b2: "Gestão e governança de ambiente Microsoft Fabric, suportando múltiplas capacidades premium com mais de 70.000 usuários ativos.",
-    exp2_b3: "Desenvolvimento de fluxos automatizados com Power Automate, eliminando processos e intervenções manuais repetitivas.",
-    exp2_b4: "Implantação de modelos semânticos escaláveis em produção aplicando as melhores práticas de Azure Analysis Services, Power BI e SQL.",
+    exp2_b1: "Projeto de otimização de licenças do Power BI que gerou cerca de R$ 500.000 de economia para 2025 através da análise de logs de atividades em capacidades Premium.",
+    exp2_b2: "Administração e governança do ambiente Microsoft Fabric com múltiplas capacidades e mais de 70 mil usuários ativos.",
+    exp2_b3: "Criação de fluxos no Power Automate para eliminação de tarefas manuais repetitivas.",
+    exp2_b4: "Modelagem e implantação de soluções em produção com Power BI, SQL e Azure Analysis Services.",
 
     exp3_role: "Analista de Dados",
-    exp3_period: "08/2022 - 07/2023",
-    exp3_b1: "Construção de soluções analíticas em Power BI voltadas para aumento de eficiência operacional e identificação de gargalos.",
-    exp3_b2: "Prototipagem de dashboards no Figma focados em usabilidade e redução de ruído visual.",
-    exp3_b3: "Pipelines de ingestão e transformação ETL escaláveis com Power Query e linguagem M.",
-    exp3_b4: "Automações com Power Automate reduzindo trabalho manual nas rotinas de dados da operação.",
+    exp3_b1: "Criação de relatórios e painéis no Power BI para suporte a decisões de negócio e melhoria de processos internos.",
+    exp3_b2: "Prototipação de dashboards no Figma para validação prévia de layouts junto aos usuários.",
+    exp3_b3: "Pipelines de ETL utilizando Power Query e linguagem M.",
+    exp3_b4: "Fluxos automatizados no Power Automate para otimização de rotinas manuais.",
 
-    exp4_role: "Analista de Dados (Marketing Analytics)",
-    exp4_period: "12/2021 - 08/2022",
-    exp4_b1: "Extração e pipelines de dados de mídias de performance (Google Ads, Facebook Ads) via Supermetrics e Tableau Prep.",
-    exp4_b2: "Criação de dashboards em Power BI e Tableau monitorando KPIs críticos: ROAS, CPA, CAC, impressões, cliques e conversões.",
-    exp4_b3: "Colaboração com times multifuncionais na criação de protótipos de visualização de dados no Figma, traduzindo métricas complexas em painéis intuitivos.",
+    exp4_role: "Analista de Dados",
+    exp4_b1: "Extração e estruturação de dados de campanhas (Google Ads, Facebook Ads) via Supermetrics e Tableau Prep.",
+    exp4_b2: "Desenvolvimento de dashboards no Power BI e Tableau acompanhando métricas como impressões, cliques, conversões e ROAS.",
+    exp4_b3: "Criação de protótipos de relatórios no Figma para alinhamento de visualização com equipes multidisciplinares.",
 
-    // Education
-    edu_badge: "Formação & Certificações",
-    edu_title: "Educação Contínua",
-    edu_degree: "Graduação em Sistemas de Informação",
-    edu_desc: "Ênfase em arquitetura de dados, modelagem de banco de dados e Python para análise de dados.",
-    cert_title: "Certificações de Mercado",
+    // Skills
+    heading_skills: "Habilidades & Formação",
+    skills_title: "Competências Técnicas",
+    skill_cat1: "BI & Visualização:",
+    skill_cat2: "Dados & Bancos:",
+    skill_cat3: "Automação & Governança:",
+    edu_title: "Educação & Certificados",
+
+    // About
+    heading_about: "Sobre",
+    about_p1: "Sou analista de dados com mais de 4 anos de atuação em projetos de Business Intelligence, engenharia analítica e governança. Meu trabalho é voltado a entender a necessidade prática do negócio e construir soluções que sejam ao mesmo tempo confiáveis tecnicamente e fáceis de usar pelos tomadores de decisão.",
+    about_p2: "Ao longo da minha carreira, trabalhei tanto com construção de pipelines de dados (ETL/ELT no Power Query, Tableau Prep e Fabric PySpark) quanto com modelagem dimensional, DAX, consultas SQL complexas e desenho de interfaces claras no Figma antes da implementação. Tenho experiência com atendimento a stakeholders internacionais e trabalho em times ágeis.",
 
     // Contact
-    contact_badge: "Vamos Conversar",
-    contact_title: "Pronto para gerar valor através dos dados da sua empresa?",
-    contact_subtitle: "Disponível para posições remotas, consultoria em Governança/FinOps de BI, arquitetura no Microsoft Fabric e desenvolvimento de dashboards de alta performance.",
-    contact_loc_label: "Localização",
-    footer_copy: "Construído com foco em alta performance e arquitetura de dados limpa."
+    contact_title: "Contato",
+    contact_desc: "Fique à vontade para me mandar uma mensagem se quiser conversar sobre oportunidades ou detalhes técnicos de algum projeto."
   },
 
   en: {
-    // Nav
-    nav_about: "About",
-    nav_skills: "Skills",
-    nav_projects: "Projects & Cases",
+    header_role: "Data & BI Analyst",
+    nav_projects: "Projects",
     nav_experience: "Experience",
+    nav_skills: "Skills",
+    nav_about: "About",
     nav_contact: "Contact",
-    cta_contact: "Get in Touch",
 
-    // Hero
-    hero_pill: "Available for new Data & BI challenges",
-    hero_greeting: "Hello, I am",
-    hero_role: "Data & Business Intelligence Analyst | Governance, Power BI, SQL & Microsoft Fabric Specialist",
-    hero_bio: "Transforming complex enterprise data into financial efficiency and high-impact decisions. Over 4 years of experience serving Fortune 500 & enterprise accounts such as <strong>VALE</strong>, <strong>Johnson & Johnson</strong>, <strong>iFood</strong>, and <strong>O Boticário</strong>. Proven track record saving over <strong>$100,000+ (R$ 500k)/year</strong> in BI infrastructure and managing Fabric environments for 70k+ users.",
-    stat_savings: "Annual Savings from Cost Optimization",
-    stat_users: "Active Users in Managed Capacities",
-    stat_exp: "Years in BI, ETL & Data Pipelines",
-    stat_capacities: "Monitored Premium Capacities",
-    hero_btn_cases: "Explore Cases & Simulations",
+    intro_title: "Data & Business Intelligence Analyst",
+    intro_bio: "Working with data modeling, SQL, Power BI, and Microsoft Fabric. Over 4 years of experience building executive dashboards, automations, and analytical pipelines, contributing to projects for clients like Vale, Johnson & Johnson, iFood, and O Boticário.",
 
-    // About
-    about_badge: "About Me",
-    about_title: "Analytics Engineering with Business ROI Focus",
-    about_subtitle: "Combining dimensional modeling, data governance, and an analytical mindset to drive real financial return from corporate data.",
-    about_col1_title: "BI Governance & FinOps",
-    about_col1_desc: "Deep activity telemetry audit (Unified Audit Log), license consumption analysis, and capacity resource planning across Microsoft Fabric & Power BI Premium to eliminate waste without affecting end-user workflows.",
-    about_col2_title: "Advanced SQL & ETL Pipelines",
-    about_col2_desc: "Query optimization, analytical aggregations with conditional HAVING clauses and window functions, Star Schema design in SQL Server, Azure Analysis Services, Athena, and Databricks.",
-    about_col3_title: "Figma Prototyping & Power BI",
-    about_col3_desc: "Designing executive UX/UI analytics layouts in Figma and deploying them into Power BI with optimized DAX, allowing leadership to make decisions in seconds.",
+    heading_projects: "Projects & Practical Cases",
+    projects_disclaimer: "Due to privacy and corporate confidentiality, datasets shown in demonstrations below have been recreated with synthetic mock data while strictly preserving the analytical logic and dimensional models used in production.",
 
-    // Skills
-    skills_badge: "Technical Stack",
-    skills_title: "Technologies & Tooling",
-    skill_group_bi: "Business Intelligence & Visualization",
-    skill_group_data: "Databases & Data Engineering",
-    skill_group_auto: "Automation & Governance",
+    // P1 Vale
+    p1_impact: "~$100,000 / year saved (2025)",
+    p1_title: "Power BI License Optimization via Audit Log Telemetry on Premium Capacities",
+    p1_context_h: "Context & Problem",
+    p1_context_p: "The enterprise operated 12 active Premium capacities while simultaneously maintaining more than 6,000 paid Power BI Pro licenses, resulting in a high recurring cost. Since reports hosted in workspaces on Premium capacities do not require viewers to hold a Pro license (free users can consume them seamlessly), there was a clear opportunity to reduce licensing costs without disrupting users.",
+    p1_solution_h: "What I did",
+    p1_solution_p: "Using SQL on the tenant's audit activity logs, I filtered all Pro-licensed users and examined their activity history over 90 days. The logic identified users whose activities were exclusively <code>ViewReport</code> on Premium-backed workspaces. If a user performed any action requiring a Pro license (editing, authoring, publishing, or accessing shared non-premium workspaces), they retained Pro. Users who strictly viewed reports on Premium were flagged for downgrade to Free.",
+    p1_sim_title: "Sample Analyzed Dataset (Mock Data)",
+    p1_sim_sub: "Simulation illustrating the classification logic applied across user accounts",
 
-    // Projects Header
-    projects_badge: "Case Portfolio",
-    projects_title: "Featured Case Studies & Interactive Simulations",
-    projects_subtitle: "Due to corporate confidentiality and NDAs, proprietary data has been anonymized and rebuilt into an interactive simulation faithfully replicating the actual analytical logic applied.",
+    // P2 Fabric
+    p2_impact: "Environment with 70,000+ users",
+    p2_title: "Power BI Tenant Monitoring System in Microsoft Fabric (Monitoring Workspace)",
+    p2_context_h: "Context & Goal",
+    p2_context_p: "To enable analyses like the license audit and maintain broad visibility into tenant health, I set up a dedicated workspace named <code>Monitoring</code> in Microsoft Fabric. The goal was to centralize data regarding user activity, workspace inventory, capacities, dataset refresh schedules, dataflows, and gateway statuses. Inspired by the concept of FUAM (Fabric Unified Activity Monitor), it was adapted in a straightforward and practical manner for day-to-day operations.",
+    p2_solution_h: "Solution Architecture",
+    p2_solution_p: "I developed Python/PySpark notebooks in Fabric to query the Power BI Admin REST APIs, handling token refresh and pagination. API payloads were stored into Lakehouse Delta tables. Execution was orchestrated on schedule via Fabric Data Pipelines, and data was modeled into a Star Schema to feed internal governance dashboards.",
+    p2_sim_title: "Dataset & Gateway Monitoring (Mock Data)",
+    p2_sim_sub: "Sample data consolidated in the Lakehouse to track refresh failures and runtimes",
 
-    // Case 1: VALE
-    case1_tag_impact: "Savings: ~$100,000 / year (R$ 500k)",
-    case1_title: "Power BI License Optimization via Telemetry Audit on Premium Capacities",
-    case1_summary: "Advanced audit over 6,000+ paid licenses and 12 dedicated Premium Capacities, isolating strict read-only consumption patterns to safely downgrade licenses (Pro to Free) with zero operational impact.",
-    case1_p1_title: "1. The Cost Challenge",
-    case1_p1_desc: "The enterprise paid for 12 dedicated Premium Capacities while simultaneously funding <strong>6,000+ active Pro licenses</strong>, resulting in substantial recurring OPEX redundancy.",
-    case1_p2_title: "2. Architectural Rule",
-    case1_p2_desc: "In workspaces backed by <strong>Premium Capacities</strong>, consumers <strong>do not require a Pro license</strong>; a Free license is fully sufficient to view and interact with reports.",
-    case1_p3_title: "3. Strict SQL Criteria",
-    case1_p3_desc: "A user qualified for downgrade only if <strong>100%</strong> of their activities were <code>ViewReport</code> on Premium capacities. Any authoring, publishing, or non-premium workspace usage retained their Pro status.",
-    tab_sql: "SQL Query Logic",
-    tab_arch: "Decision Pipeline",
-    badge_validated: "Production-Validated Logic",
+    // Filters
+    filter_all: "All",
+    filter_eligible: "Eligible (Downgrade)",
+    filter_keep: "Keep Pro",
+    filter_ok: "Completed",
+    filter_fail: "Failures",
 
-    // Case 2: Microsoft Fabric Monitoring & Governance
-    case2_tag_impact: "Centralized Governance (70k+ Users)",
-    case2_title: "Power BI Tenant Telemetry & Governance Architecture in Microsoft Fabric",
-    case2_summary: "Enterprise-grade observability and auditing solution in Microsoft Fabric ('Monitoring' workspace), conceptually inspired by community standards like <strong>FUAM (Fabric Unified Activity Monitor)</strong> in a simplified, custom architecture. Automated ingestion via REST APIs using Fabric Notebooks (PySpark), Delta Lakehouse storage, Data Pipeline orchestration, and dimensional Star Schema modeling.",
-    case2_p1_title: "1. Tenant Observability",
-    case2_p1_desc: "Across multiple capacities and thousands of artifacts, governance required unified visibility over <strong>user activities, dataset refresh schedules, dataflows, and on-premises gateway clusters</strong>.",
-    case2_p2_title: "2. Fabric Notebooks & APIs",
-    case2_p2_desc: "Engineered Python/PySpark scripts in <strong>Fabric Notebooks</strong> handling API token refresh and pagination to extract telemetry from Power BI Admin REST APIs directly into Lakehouse Delta tables.",
-    case2_p3_title: "3. Orchestration & Modeling",
-    case2_p3_desc: "Scheduled orchestration with <strong>Fabric Data Pipelines</strong> updating a dimensional <strong>Star Schema</strong> (activity events and refresh history facts linked to workspaces and gateway dimensions).",
-    tab_pyspark: "Fabric Notebook (PySpark)",
-    tab_fabric_arch: "Lakehouse & Pipeline Flow",
-    tab_model: "Dimensional Star Schema",
-    badge_fabric_active: "Production Pipeline",
+    // Secondary Cases
+    p3_title: "Global BI Support & Amazon Athena Query Optimization",
+    p3_desc: "Maintained and enhanced Power BI and Tableau reports supporting US stakeholders. Debugged and tuned SQL queries in Amazon Athena to ensure correct visualization and low latency across S3 data lakes.",
+    p4_title: "Marketing Performance Pipelines & Dashboards",
+    p4_desc: "Ingested Google Ads and Facebook Ads data using Supermetrics and Tableau Prep. Built Power BI and Tableau dashboards tracking performance metrics (ROAS, conversions, clicks, and impressions), with wireframes designed in Figma.",
 
-    // Case 2 Simulation
-    sim2_title: "Tenant Observability Dashboard (Simulated)",
-    sim2_desc: "Simulation of telemetry data consolidated into the monitoring Lakehouse: track dataset refresh health, gateway cluster uptime, and daily activity volume.",
-    sim2_filter_all: "All Datasets (8)",
-    sim2_filter_ok: "✅ Success (6)",
-    sim2_filter_fail: "⚠️ Failures (2)",
-    t_kpi_events: "Events Logged (Today):",
-    t_kpi_rate: "Refresh Success Rate:",
-    t_kpi_gateways: "Online Gateways:",
-    t_kpi_lakehouse: "Lakehouse Storage:",
-    th2_dataset: "Dataset Name",
-    th2_workspace: "Workspace / Capacity",
-    th2_start: "Start Time",
-    th2_duration: "Duration",
-    th2_gateway: "Gateway Cluster",
-    th2_status: "Status",
-    th2_action: "Automated Action",
-    sim2_stat_impact: "Orchestrator:",
-    sim2_stat_result: "Business Benefit:",
-
-    // FinOps Calculator
-    calc_badge: "Interactive FinOps Tool",
-    calc_title: "Power BI License Cost Optimization Simulator",
-    calc_subtitle: "See the potential financial return that the governance framework applied at VALE can deliver to your enterprise.",
-    calc_label_licenses: "Current Power BI Pro Licenses Count:",
-    calc_label_viewers: "Estimated % of Read-Only Report Consumers (on Premium):",
-    calc_note_text: "Assumes standard enterprise Power BI Pro licensing costs (~$10 - $14 / month / user) converted based on Premium Capacity consumption rules.",
-    calc_res_users: "Eligible Users for Free Downgrade:",
-    calc_res_savings_brl: "Estimated Annual Savings (BRL):",
-    calc_cta: "Assess Savings For My Enterprise",
-
-    // Case 3: Zygon Marketing
-    case3_title: "Performance Marketing Data Pipelines & Multi-Channel BI (ROAS / CPA)",
-    case3_desc: "Automated extraction of Google Ads and Meta Ads via Supermetrics and Tableau Prep. Built dimensional models and executive dashboards in Figma & Power BI tracking conversion funnels, ROAS, and CAC.",
-    case3_kpi1: "Consolidated Ad Sources",
-    case3_kpi2: "Figma Data UX/UI",
-
-    // Case 4: Accenture / J&J
-    case4_title: "Amazon Athena SQL Query Optimization & Global Executive BI",
-    case4_desc: "Maintained and scaled global BI solutions with Power BI and Tableau. Resolved query performance bottlenecks and ensured data compliance across AWS Athena S3 Parquet lakes under agile sprints.",
-    case4_kpi1: "Athena & S3 Parquet",
-    case4_kpi2: "Global Agile Sprints",
-
-    // Simulation
-    sim_title: "Synthetic Data Interactive Simulation",
-    sim_desc: "Test the telemetry audit logic live with this representative dataset (10 mock users). Click the filters to observe the classification engine.",
-    sim_filter_all: "All Users (10)",
-    sim_filter_eligible: "✅ Eligible for Free",
-    sim_filter_keep: "🔒 Retain Pro License",
-    th_user: "Simulated User",
-    th_dept: "Department",
-    th_license: "Current License",
-    th_views: "Views (Premium)",
-    th_pro_actions: "Pro / Shared Actions",
-    th_status: "Algorithmic Decision",
-    th_savings: "Financial Impact",
-    sim_stat_pot: "Estimated Savings Per Downgraded User:",
-    sim_stat_result: "Consolidated Annual Contract Impact:",
-
-    // Next Projects
-    next_proj_title: "More Real-World Cases Under Production",
-    next_proj_desc: "Upcoming project walkthroughs: Tableau Prep ETL pipelines, AWS Athena analytics, Figma BI design systems for global clients (Johnson & Johnson, iFood, O Boticário), and Power Automate workflows.",
-    next_proj_btn: "Request Technical Walkthrough",
-
-    // Experience
-    exp_badge: "Career Track",
-    exp_title: "Professional Experience",
+    // Timeline
+    heading_experience: "Professional Experience",
     exp1_role: "Data Analyst",
     exp1_period: "11/2025 - Present",
-    exp1_b1: "Developed Business Intelligence solutions using Power BI and Tableau, supporting global stakeholders in data-driven decision making.",
-    exp1_b2: "Optimized and debugged complex SQL queries in Amazon Athena, ensuring data integrity and query performance.",
-    exp1_b3: "Enhanced existing dashboard layouts and user experience (UX) to streamline report consumption.",
-    exp1_b4: "Delivered iterative value within agile sprints for enterprise clients.",
+    exp1_b1: "Developed BI solutions with Power BI and Tableau to support data-driven decision making for US stakeholders.",
+    exp1_b2: "Refactored SQL queries in Amazon Athena to ensure query accuracy and dashboard performance.",
+    exp1_b3: "Enhanced usability and layout standards across existing enterprise reports.",
+    exp1_b4: "Collaborated in an agile scrum team delivering iterative sprint commitments.",
 
     exp2_role: "Data Analyst",
-    exp2_period: "10/2023 - 10/2025",
-    exp2_b1: "Led the Power BI license optimization project that saved ~R$ 500,000 in 2025 by auditing SQL activity telemetry across Premium capacities.",
-    exp2_b2: "Managed Microsoft Fabric environments across multiple premium capacities supporting over 70,000 active users.",
-    exp2_b3: "Engineered automated workflows with Power Automate, eliminating repetitive manual administrative tasks.",
-    exp2_b4: "Delivered scalable production semantic models following best practices in Azure Analysis Services, Power BI, and SQL.",
+    exp2_b1: "Led the Power BI license optimization initiative that saved ~R$ 500,000 for 2025 through SQL analysis of user activity logs on Premium capacities.",
+    exp2_b2: "Governed Microsoft Fabric tenant environment supporting multiple capacities and over 70,000 active users.",
+    exp2_b3: "Created automated Power Automate flows to eliminate repetitive manual operational tasks.",
+    exp2_b4: "Modeled and deployed scalable production semantic layers using Power BI, SQL, and Azure Analysis Services.",
 
     exp3_role: "Data Analyst",
-    exp3_period: "08/2022 - 07/2023",
-    exp3_b1: "Engineered BI solutions in Power BI resulting in increased operational efficiency and executive visibility.",
-    exp3_b2: "Designed dashboard layouts and design systems in Figma, ensuring frictionless usability.",
-    exp3_b3: "Built scalable ETL pipelines using Power Query and M language for consistent data ingestion.",
-    exp3_b4: "Automated business routines with Power Automate, reducing operational toil.",
+    exp3_b1: "Built operational and executive Power BI dashboards to streamline business processes and leadership visibility.",
+    exp3_b2: "Prototyped dashboard interfaces in Figma for stakeholder design validation prior to development.",
+    exp3_b3: "Engineered scalable ETL pipelines using Power Query and M code.",
+    exp3_b4: "Automated manual data handoffs using Power Automate flows.",
 
-    exp4_role: "Data Analyst (Marketing Analytics)",
-    exp4_period: "12/2021 - 08/2022",
-    exp4_b1: "Extracted and ingested data from Google Ads and Facebook Ads via Supermetrics and Tableau Prep.",
-    exp4_b2: "Built marketing performance dashboards in Power BI and Tableau, tracking ROAS, CPA, conversions, and impressions.",
-    exp4_b3: "Collaborated with cross-functional teams to prototype analytics interfaces in Figma, turning marketing metrics into intuitive dashboards.",
+    exp4_role: "Data Analyst",
+    exp4_b1: "Extracted and structured advertising campaign data (Google Ads, Facebook Ads) via Supermetrics and Tableau Prep.",
+    exp4_b2: "Developed Power BI and Tableau dashboards monitoring impressions, clicks, conversions, and ROAS.",
+    exp4_b3: "Designed report wireframes in Figma to align visual hierarchy with cross-functional marketing teams.",
 
-    // Education
-    edu_badge: "Education & Certifications",
-    edu_title: "Continuous Learning",
-    edu_degree: "B.S. in Information Systems",
-    edu_desc: "Focus on data architecture, database engineering, and Python for data analysis.",
-    cert_title: "Professional Certifications",
+    // Skills
+    heading_skills: "Skills & Education",
+    skills_title: "Technical Skills",
+    skill_cat1: "BI & Visualization:",
+    skill_cat2: "Data & Databases:",
+    skill_cat3: "Automation & Governance:",
+    edu_title: "Education & Certifications",
+
+    // About
+    heading_about: "About",
+    about_p1: "I am a Data Analyst with over 4 years of experience working across Business Intelligence, analytics engineering, and data governance. My approach is grounded in understanding business needs and delivering solutions that are technically robust and easy for decision-makers to use.",
+    about_p2: "Throughout my career, I have worked across data pipelines (ETL/ELT in Power Query, Tableau Prep, and Fabric PySpark), dimensional modeling, DAX, advanced SQL, and interface prototyping in Figma. I also have solid experience working with international stakeholders in agile environments.",
 
     // Contact
-    contact_badge: "Get In Touch",
-    contact_title: "Ready to unlock measurable ROI from your company's data?",
-    contact_subtitle: "Available for remote opportunities, BI Governance & FinOps advisory, Microsoft Fabric architecture, and high-performance dashboard engineering.",
-    contact_loc_label: "Location",
-    footer_copy: "Built for speed, accessibility, and clean data architecture."
+    contact_title: "Contact",
+    contact_desc: "Feel free to reach out via email or LinkedIn if you want to discuss opportunities or technical details about any project."
   }
 };
 
-// --- 2. SYNTHETIC DATASET FOR PROJECT 1 (VALE LICENSE AUDIT) ---
-const mockAuditUsers = [
+// --- DATASETS ---
+
+const p1Users = [
   {
     email: "operacao.porto.01@vale-simulated.com",
     dept: "Logística Portuária",
     dept_en: "Port Logistics",
     license: "Power BI Pro",
-    premiumViews: 142,
+    views: 142,
     proActions: 0,
     status: "eligible",
-    reason_pt: "Apenas visualizou relatórios em Capacidade Premium",
-    reason_en: "Exclusively viewed reports on Premium Capacity",
-    savings_pt: "- R$ 780 / ano",
-    savings_en: "- $156 / yr"
+    note_pt: "100% de acessos como ViewReport em Premium",
+    note_en: "100% ViewReport on Premium"
   },
   {
     email: "eng.ferrovia.abc@vale-simulated.com",
     dept: "Engenharia Ferroviária",
     dept_en: "Railway Engineering",
     license: "Power BI Pro",
-    premiumViews: 89,
+    views: 89,
     proActions: 0,
     status: "eligible",
-    reason_pt: "Consumo exclusivo de relatórios em Premium",
-    reason_en: "100% read-only consumption on Premium",
-    savings_pt: "- R$ 780 / ano",
-    savings_en: "- $156 / yr"
+    note_pt: "Consumo exclusivo de relatórios em Premium",
+    note_en: "Read-only access in Premium"
   },
   {
     email: "analista.bi.senior@vale-simulated.com",
     dept: "Centro de Excelência BI",
     dept_en: "BI Center of Excellence",
     license: "Power BI Pro",
-    premiumViews: 310,
-    proActions: 45, // Published, edited, created
+    views: 310,
+    proActions: 45,
     status: "keep",
-    reason_pt: "Publicou relatórios e editou modelos (Requer Pro)",
-    reason_en: "Published reports & edited datasets (Requires Pro)",
-    savings_pt: "R$ 0 (Mantém Pro)",
-    savings_en: "$0 (Retain Pro)"
+    note_pt: "Publicou relatórios e editou modelos (Requer Pro)",
+    note_en: "Published reports & edited datasets (Requires Pro)"
   },
   {
     email: "coordenador.minas@vale-simulated.com",
     dept: "Operações de Mina",
     dept_en: "Mining Operations",
     license: "Power BI Pro",
-    premiumViews: 64,
+    views: 64,
     proActions: 0,
     status: "eligible",
-    reason_pt: "Apenas consome dashboards operacionais em P-SKU",
-    reason_en: "Pure consumer of operational dashboards in P-SKU",
-    savings_pt: "- R$ 780 / ano",
-    savings_en: "- $156 / yr"
+    note_pt: "Apenas visualiza painéis operacionais",
+    note_en: "Only views operational dashboards"
   },
   {
     email: "supervisor.rh@vale-simulated.com",
     dept: "Recursos Humanos",
     dept_en: "Human Resources",
     license: "Power BI Pro",
-    premiumViews: 18,
-    proActions: 6, // Accessed non-premium workspace
+    views: 18,
+    proActions: 6,
     status: "keep",
-    reason_pt: "Acessou workspace pessoal/compartilhado sem capacidade",
-    reason_en: "Accessed shared non-premium workspace (Requires Pro)",
-    savings_pt: "R$ 0 (Mantém Pro)",
-    savings_en: "$0 (Retain Pro)"
+    note_pt: "Acessou workspace pessoal não-premium",
+    note_en: "Accessed non-premium personal workspace"
   },
   {
     email: "diretoria.executiva@vale-simulated.com",
-    dept: "Diretoria Corporativa",
+    dept: "Diretoria",
     dept_en: "Executive Board",
     license: "Power BI Pro",
-    premiumViews: 52,
+    views: 52,
     proActions: 0,
     status: "eligible",
-    reason_pt: "Consumo de relatórios executivos em Premium",
-    reason_en: "Read-only consumption of executive dashboards",
-    savings_pt: "- R$ 780 / ano",
-    savings_en: "- $156 / yr"
+    note_pt: "Apenas consumo de relatórios da diretoria",
+    note_en: "Executive report viewer only"
   },
   {
     email: "seguranca.trabalho@vale-simulated.com",
     dept: "SSMA (Segurança)",
-    dept_en: "HSE (Safety & Env)",
+    dept_en: "Safety (HSE)",
     license: "Power BI Pro",
-    premiumViews: 115,
+    views: 115,
     proActions: 0,
     status: "eligible",
-    reason_pt: "Consulta diária a indicadores em Premium",
-    reason_en: "Daily safety KPI lookup in Premium capacity",
-    savings_pt: "- R$ 780 / ano",
-    savings_en: "- $156 / yr"
-  },
-  {
-    email: "desenvolvedor.dados@vale-simulated.com",
-    dept: "Arquitetura de TI",
-    dept_en: "IT Architecture",
-    license: "Power BI Pro",
-    premiumViews: 85,
-    proActions: 28, // Created datasets & scheduled refresh
-    status: "keep",
-    reason_pt: "Criação de conjuntos de dados e agendamento",
-    reason_en: "Authoring semantic models and refreshes",
-    savings_pt: "R$ 0 (Mantém Pro)",
-    savings_en: "$0 (Retain Pro)"
+    note_pt: "Visualizador de indicadores em capacidade P-SKU",
+    note_en: "Safety KPI viewer on P-SKU"
   },
   {
     email: "suprimentos.compras@vale-simulated.com",
-    dept: "Procurement / Suprimentos",
-    dept_en: "Procurement & Supply",
+    dept: "Suprimentos",
+    dept_en: "Procurement",
     license: "Power BI Pro",
-    premiumViews: 73,
+    views: 73,
     proActions: 0,
     status: "eligible",
-    reason_pt: "Apenas visualizou relatórios de gastos em Premium",
-    reason_en: "View-only access to spend reports in Premium",
-    savings_pt: "- R$ 780 / ano",
-    savings_en: "- $156 / yr"
-  },
-  {
-    email: "manutencao.ativos@vale-simulated.com",
-    dept: "Manutenção Preditiva",
-    dept_en: "Predictive Maintenance",
-    license: "Power BI Pro",
-    premiumViews: 198,
-    proActions: 0,
-    status: "eligible",
-    reason_pt: "Apenas visualizou dashboards de sensores IoT em Premium",
-    reason_en: "Exclusively viewed IoT telemetry boards in Premium",
-    savings_pt: "- R$ 780 / ano",
-    savings_en: "- $156 / yr"
+    note_pt: "Visualização diária de relatórios de compras",
+    note_en: "Daily spend dashboard viewer"
   }
 ];
 
-// --- 2.1 SYNTHETIC DATASET FOR PROJECT 2 (FABRIC TENANT REFRESH MONITOR) ---
-const mockDatasetRefreshes = [
+const p2Refreshes = [
   {
     name: "Dataset_Vendas_Corporativo",
     workspace: "Comercial Executivo (P-SKU)",
-    startTime: "06:00:12",
+    start: "06:00",
     duration: "14 min",
     gateway: "GW-Enterprise-BR01",
     status: "Completed",
-    action_pt: "✅ Carga sem incidentes",
-    action_en: "✅ Completed with zero errors"
+    action_pt: "Atualizado normalmente",
+    action_en: "Completed successfully"
   },
   {
     name: "Dataset_Operacoes_Ferrovia",
-    workspace: "Logística Integrada (Fabric F64)",
-    startTime: "06:15:45",
+    workspace: "Logística (Fabric F64)",
+    start: "06:15",
     duration: "28 min",
     gateway: "GW-Enterprise-BR02",
     status: "Completed",
-    action_pt: "✅ Carga incremental executada",
-    action_en: "✅ Incremental refresh completed"
+    action_pt: "Carga incremental concluída",
+    action_en: "Incremental refresh completed"
   },
   {
     name: "Dataset_Manutencao_Mina",
     workspace: "Ativos & Mina (P-SKU)",
-    startTime: "06:30:00",
+    start: "06:30",
     duration: "45 min",
     gateway: "GW-Enterprise-BR01",
     status: "Failed",
-    action_pt: "⚠️ Alerta via Power Automate (Timeout SQL)",
-    action_en: "⚠️ Teams alert triggered (SQL Timeout)"
+    action_pt: "Timeout SQL — alerta enviado ao time",
+    action_en: "SQL Timeout — alert sent to team"
   },
   {
     name: "Dataset_Financeiro_Controladoria",
-    workspace: "Finanças & Controladoria (Fabric F64)",
-    startTime: "07:00:20",
+    workspace: "Controladoria (Fabric F64)",
+    start: "07:00",
     duration: "08 min",
     gateway: "GW-Enterprise-BR03",
     status: "Completed",
-    action_pt: "✅ Concluído sem alertas",
-    action_en: "✅ Completed smoothly"
+    action_pt: "Atualizado normalmente",
+    action_en: "Completed successfully"
   },
   {
-    name: "Dataset_RH_PeopleAnalytics",
-    workspace: "Recursos Humanos (P-SKU)",
-    startTime: "07:15:10",
-    duration: "11 min",
-    gateway: "GW-Enterprise-BR02",
-    status: "Completed",
-    action_pt: "✅ Carga completa diária",
-    action_en: "✅ Daily full refresh succeeded"
-  },
-  {
-    name: "Dataset_Suprimentos_Procurement",
-    workspace: "Suprimentos Global (P-SKU)",
-    startTime: "07:30:00",
+    name: "Dataset_Suprimentos_Compras",
+    workspace: "Suprimentos (P-SKU)",
+    start: "07:30",
     duration: "19 min",
     gateway: "GW-Enterprise-BR01",
     status: "Failed",
-    action_pt: "⚠️ Alerta ao Owner (Credencial Expirada)",
-    action_en: "⚠️ Owner alerted (Expired Credential)"
-  },
-  {
-    name: "Dataset_SSMA_IndicadoresSeguranca",
-    workspace: "Segurança & Meio Ambiente (Fabric F64)",
-    startTime: "08:00:05",
-    duration: "05 min",
-    gateway: "Direct Cloud Link",
-    status: "Completed",
-    action_pt: "✅ Concluído sem alertas",
-    action_en: "✅ Completed smoothly"
+    action_pt: "Credencial expirada — notificado owner",
+    action_en: "Expired credential — owner notified"
   },
   {
     name: "Dataset_Auditoria_Licencas",
     workspace: "Monitoring (Fabric P-SKU)",
-    startTime: "04:00:00",
+    start: "04:00",
     duration: "22 min",
-    gateway: "Fabric Notebook API Link",
+    gateway: "API Rest Fabric Link",
     status: "Completed",
-    action_pt: "✅ Base da Otimização de R$ 500k",
-    action_en: "✅ Source of the $100k savings case"
+    action_pt: "Origem dos dados do case de licenças",
+    action_en: "Source data for licensing case"
   }
 ];
 
-// --- 3. STATE & APP INITIALIZATION ---
+// --- APP STATE ---
 let currentLang = 'pt';
-let currentFilter = 'all';
-let currentFilter2 = 'all';
+let p1Filter = 'all';
+let p2Filter = 'all';
 
-// Detect browser language or stored preference
 function initLanguage() {
   const stored = localStorage.getItem('mf_lang_pref');
   if (stored && (stored === 'pt' || stored === 'en')) {
@@ -604,28 +360,24 @@ function initLanguage() {
   updateLangButton();
 }
 
-// Switch language
 function toggleLanguage() {
   currentLang = currentLang === 'pt' ? 'en' : 'pt';
   localStorage.setItem('mf_lang_pref', currentLang);
   applyTranslations();
   updateLangButton();
-  renderSimulationTable();
-  renderRefreshMonitoringTable();
-  if (window.updateCalculatorLocale) {
-    window.updateCalculatorLocale();
-  }
+  renderP1Table();
+  renderP2Table();
 }
 
 function updateLangButton() {
   const flagEl = document.getElementById('langFlag');
-  const codeEl = document.getElementById('langCode');
+  const labelEl = document.getElementById('langLabel');
   if (currentLang === 'pt') {
     flagEl.textContent = '🇧🇷';
-    codeEl.textContent = 'PT';
+    labelEl.textContent = 'PT';
   } else {
     flagEl.textContent = '🇺🇸';
-    codeEl.textContent = 'EN';
+    labelEl.textContent = 'EN';
   }
 }
 
@@ -641,252 +393,130 @@ function applyTranslations() {
   });
 }
 
-// --- 4. SIMULATION TABLE RENDERING (Case 1) ---
-function renderSimulationTable() {
-  const tbody = document.getElementById('simulationTbody');
+// Render P1 table
+function renderP1Table() {
+  const tbody = document.getElementById('p1Tbody');
   if (!tbody) return;
 
-  const filtered = mockAuditUsers.filter(u => {
-    if (currentFilter === 'all') return true;
-    return u.status === currentFilter;
+  const filtered = p1Users.filter(u => {
+    if (p1Filter === 'all') return true;
+    return u.status === p1Filter;
   });
 
   tbody.innerHTML = filtered.map(u => {
     const isEligible = u.status === 'eligible';
     const dept = currentLang === 'pt' ? u.dept : u.dept_en;
-    const reason = currentLang === 'pt' ? u.reason_pt : u.reason_en;
-    const savings = currentLang === 'pt' ? u.savings_pt : u.savings_en;
+    const note = currentLang === 'pt' ? u.note_pt : u.note_en;
 
-    const statusBadge = isEligible
-      ? `<span class="badge-status downgrade"><i class="fa-solid fa-check"></i> ${currentLang === 'pt' ? 'Downgrade para Free' : 'Downgrade to Free'}</span>`
-      : `<span class="badge-status keep"><i class="fa-solid fa-lock"></i> ${currentLang === 'pt' ? 'Manter Licença Pro' : 'Retain Pro License'}</span>`;
+    const tag = isEligible
+      ? `<span class="status-tag tag-ok">${currentLang === 'pt' ? 'Elegível para Free' : 'Eligible for Free'}</span>`
+      : `<span class="status-tag tag-keep">${currentLang === 'pt' ? 'Manter Pro' : 'Keep Pro'}</span>`;
 
     return `
       <tr>
         <td>
-          <span class="user-code">${u.email}</span>
-          <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 2px;">${reason}</div>
+          <div class="user-email-col">${u.email}</div>
+          <div class="user-reason">${note}</div>
         </td>
         <td>${dept}</td>
-        <td><span style="font-family: var(--font-mono); font-size: 0.8rem;">${u.license}</span></td>
-        <td style="font-weight: 700; color: var(--accent-cyan); text-align: center;">${u.premiumViews}</td>
-        <td style="font-weight: 700; color: ${u.proActions > 0 ? 'var(--accent-amber)' : 'var(--text-muted)'}; text-align: center;">${u.proActions}</td>
-        <td>${statusBadge}</td>
-        <td style="font-weight: 700; font-family: var(--font-mono); color: ${isEligible ? 'var(--accent-green)' : 'var(--text-muted)'};">
-          ${savings}
-        </td>
+        <td><span style="font-family: var(--font-mono); font-size: 0.78rem;">${u.license}</span></td>
+        <td class="text-right" style="font-family: var(--font-mono); font-weight: 600;">${u.views}</td>
+        <td class="text-right" style="font-family: var(--font-mono); color: ${u.proActions > 0 ? '#d29922' : 'inherit'};">${u.proActions}</td>
+        <td>${tag}</td>
       </tr>
     `;
   }).join('');
 }
 
-// --- 4.1 SIMULATION TABLE RENDERING (Case 2 - Tenant Monitoring) ---
-function renderRefreshMonitoringTable() {
-  const tbody = document.getElementById('refreshMonitoringTbody');
+// Render P2 table
+function renderP2Table() {
+  const tbody = document.getElementById('p2Tbody');
   if (!tbody) return;
 
-  const filtered = mockDatasetRefreshes.filter(item => {
-    if (currentFilter2 === 'all') return true;
-    return item.status === currentFilter2;
+  const filtered = p2Refreshes.filter(r => {
+    if (p2Filter === 'all') return true;
+    return r.status === p2Filter;
   });
 
-  tbody.innerHTML = filtered.map(item => {
-    const isSuccess = item.status === 'Completed';
-    const action = currentLang === 'pt' ? item.action_pt : item.action_en;
+  tbody.innerHTML = filtered.map(r => {
+    const isOk = r.status === 'Completed';
+    const action = currentLang === 'pt' ? r.action_pt : r.action_en;
 
-    const statusBadge = isSuccess
-      ? `<span class="badge-status downgrade"><i class="fa-solid fa-circle-check"></i> ${currentLang === 'pt' ? 'Concluído' : 'Completed'}</span>`
-      : `<span class="badge-status keep"><i class="fa-solid fa-triangle-exclamation"></i> ${currentLang === 'pt' ? 'Falha Detectada' : 'Failed'}</span>`;
+    const tag = isOk
+      ? `<span class="status-tag tag-ok">${currentLang === 'pt' ? 'Concluído' : 'Completed'}</span>`
+      : `<span class="status-tag tag-fail">${currentLang === 'pt' ? 'Falha' : 'Failed'}</span>`;
 
     return `
       <tr>
-        <td>
-          <div style="font-weight: 600; color: var(--text-primary); font-family: var(--font-mono); font-size: 0.82rem;">${item.name}</div>
-        </td>
-        <td><span style="font-size: 0.85rem; color: var(--text-secondary);">${item.workspace}</span></td>
-        <td style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-muted);">${item.startTime}</td>
-        <td style="font-family: var(--font-mono); font-size: 0.82rem; font-weight: 600;">${item.duration}</td>
-        <td><span class="user-code">${item.gateway}</span></td>
-        <td>${statusBadge}</td>
-        <td style="font-size: 0.82rem; color: ${isSuccess ? 'var(--text-secondary)' : 'var(--accent-amber)'}; font-weight: ${isSuccess ? '400' : '600'};">
-          ${action}
-        </td>
+        <td><code style="font-size: 0.8rem;">${r.name}</code></td>
+        <td style="font-size: 0.8rem; color: var(--text-muted);">${r.workspace}</td>
+        <td style="font-family: var(--font-mono); font-size: 0.8rem;">${r.start}</td>
+        <td style="font-family: var(--font-mono); font-size: 0.8rem;">${r.duration}</td>
+        <td><span style="font-family: var(--font-mono); font-size: 0.76rem; color: var(--text-muted);">${r.gateway}</span></td>
+        <td>${tag}</td>
+        <td style="font-size: 0.8rem;">${action}</td>
       </tr>
     `;
   }).join('');
 }
 
-// --- 5. TAB SWITCHING (Scoped to each Case Technical Box) ---
-function initTabs() {
-  document.querySelectorAll('.case-technical-box').forEach(box => {
-    const tabs = box.querySelectorAll('.tech-tab');
-    const contents = box.querySelectorAll('.tech-content');
-
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        tabs.forEach(t => t.classList.remove('active'));
-        contents.forEach(c => c.classList.remove('active'));
-
-        tab.classList.add('active');
-        const targetId = `tab-${tab.getAttribute('data-tab')}`;
-        const targetContent = box.querySelector(`#${targetId}`);
-        if (targetContent) {
-          targetContent.classList.add('active');
-        }
-      });
-    });
-  });
-}
-
-// --- 6. SIMULATION FILTER BUTTONS ---
-function initSimulationFilters() {
-  // Case 1 Filters
-  const filterBtns = document.querySelectorAll('.sim-filter-btn');
-  filterBtns.forEach(btn => {
+// Setup Filters
+function setupFilters() {
+  document.querySelectorAll('[data-p1-filter]').forEach(btn => {
     btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('[data-p1-filter]').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      currentFilter = btn.getAttribute('data-filter');
-      renderSimulationTable();
+      p1Filter = btn.getAttribute('data-p1-filter');
+      renderP1Table();
     });
   });
 
-  // Case 2 Filters
-  const filter2Btns = document.querySelectorAll('.sim-filter2-btn');
-  filter2Btns.forEach(btn => {
+  document.querySelectorAll('[data-p2-filter]').forEach(btn => {
     btn.addEventListener('click', () => {
-      filter2Btns.forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('[data-p2-filter]').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      currentFilter2 = btn.getAttribute('data-filter');
-      renderRefreshMonitoringTable();
+      p2Filter = btn.getAttribute('data-p2-filter');
+      renderP2Table();
     });
   });
 }
 
-// --- 7. COPY CODE TO CLIPBOARD ---
-function initCopyCode() {
-  // SQL Copy
-  const copyBtn = document.getElementById('copyCodeBtn');
-  if (copyBtn) {
-    copyBtn.addEventListener('click', () => {
-      const code = document.querySelector('#tab-sql-query pre code').innerText;
+// Setup Copy Buttons
+function setupCopyButtons() {
+  const sqlBtn = document.getElementById('copySqlBtn');
+  if (sqlBtn) {
+    sqlBtn.addEventListener('click', () => {
+      const code = sqlBtn.closest('.code-box').querySelector('pre code').innerText;
       navigator.clipboard.writeText(code).then(() => {
-        const originalText = copyBtn.innerHTML;
-        copyBtn.innerHTML = '<i class="fa-solid fa-check"></i> ' + (currentLang === 'pt' ? 'Copiado!' : 'Copied!');
-        setTimeout(() => {
-          copyBtn.innerHTML = originalText;
-        }, 2000);
+        sqlBtn.innerText = currentLang === 'pt' ? 'Copiado!' : 'Copied!';
+        setTimeout(() => { sqlBtn.innerText = currentLang === 'pt' ? 'Copiar' : 'Copy'; }, 2000);
       });
     });
   }
 
-  // PySpark Copy
-  const copyPyBtn = document.getElementById('copyPyCodeBtn');
-  if (copyPyBtn) {
-    copyPyBtn.addEventListener('click', () => {
-      const code = document.querySelector('#tab-pyspark-code pre code').innerText;
+  const pyBtn = document.getElementById('copyPyBtn');
+  if (pyBtn) {
+    pyBtn.addEventListener('click', () => {
+      const code = pyBtn.closest('.code-box').querySelector('pre code').innerText;
       navigator.clipboard.writeText(code).then(() => {
-        const originalText = copyPyBtn.innerHTML;
-        copyPyBtn.innerHTML = '<i class="fa-solid fa-check"></i> ' + (currentLang === 'pt' ? 'Copiado!' : 'Copied!');
-        setTimeout(() => {
-          copyPyBtn.innerHTML = originalText;
-        }, 2000);
+        pyBtn.innerText = currentLang === 'pt' ? 'Copiado!' : 'Copied!';
+        setTimeout(() => { pyBtn.innerText = currentLang === 'pt' ? 'Copiar' : 'Copy'; }, 2000);
       });
     });
   }
 }
 
-// --- 8. MOBILE NAVIGATION MENU ---
-function initMobileMenu() {
-  const mobileBtn = document.getElementById('mobileMenuBtn');
-  const navMenu = document.getElementById('navMenu');
-  if (mobileBtn && navMenu) {
-    mobileBtn.addEventListener('click', () => {
-      navMenu.classList.toggle('open');
-      const icon = mobileBtn.querySelector('i');
-      if (navMenu.classList.contains('open')) {
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-xmark');
-      } else {
-        icon.classList.remove('fa-xmark');
-        icon.classList.add('fa-bars');
-      }
-    });
-
-    // Close when clicking nav-link
-    navMenu.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('open');
-        const icon = mobileBtn.querySelector('i');
-        if (icon) {
-          icon.classList.remove('fa-xmark');
-          icon.classList.add('fa-bars');
-        }
-      });
-    });
-  }
-}
-
-// --- 8.1 FINOPS ROI CALCULATOR ---
-function initCalculator() {
-  const licInput = document.getElementById('proLicensesInput');
-  const pctInput = document.getElementById('viewerPercentInput');
-  const valLic = document.getElementById('valLicenses');
-  const valPct = document.getElementById('valPercent');
-  const resUsers = document.getElementById('resUsersCount');
-  const resBRL = document.getElementById('resSavingsBRL');
-  const resUSD = document.getElementById('resSavingsUSD');
-
-  if (!licInput || !pctInput) return;
-
-  function updateCalc() {
-    const licenses = parseInt(licInput.value, 10);
-    const percent = parseInt(pctInput.value, 10);
-
-    valLic.textContent = licenses.toLocaleString(currentLang === 'pt' ? 'pt-BR' : 'en-US');
-    valPct.textContent = `${percent}%`;
-
-    const convertible = Math.round(licenses * (percent / 100));
-    // Base standard: ~R$ 600 / usuário / ano (~$120 USD)
-    const annualBRL = convertible * 600;
-    const annualUSD = Math.round(annualBRL / 5.2);
-
-    resUsers.textContent = currentLang === 'pt' 
-      ? `${convertible.toLocaleString('pt-BR')} usuários` 
-      : `${convertible.toLocaleString('en-US')} users`;
-
-    resBRL.textContent = currentLang === 'pt'
-      ? `R$ ${annualBRL.toLocaleString('pt-BR')} / ano`
-      : `R$ ${annualBRL.toLocaleString('en-US')} / yr`;
-
-    resUSD.textContent = currentLang === 'pt'
-      ? `≈ $ ${annualUSD.toLocaleString('pt-BR')} USD / ano`
-      : `≈ $ ${annualUSD.toLocaleString('en-US')} USD / yr`;
-  }
-
-  licInput.addEventListener('input', updateCalc);
-  pctInput.addEventListener('input', updateCalc);
-  updateCalc();
-  window.updateCalculatorLocale = updateCalc;
-}
-
-// --- 9. DOM CONTENT LOADED ---
+// Init
 document.addEventListener('DOMContentLoaded', () => {
-  // Update year
   const yearEl = document.getElementById('currentYear');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // Initialize features
   initLanguage();
-  initTabs();
-  initSimulationFilters();
-  initCopyCode();
-  initMobileMenu();
-  initCalculator();
-  renderSimulationTable();
-  renderRefreshMonitoringTable();
+  setupFilters();
+  setupCopyButtons();
+  renderP1Table();
+  renderP2Table();
 
-  // Language button listener
   const langToggle = document.getElementById('langToggle');
   if (langToggle) {
     langToggle.addEventListener('click', toggleLanguage);
