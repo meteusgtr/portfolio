@@ -105,6 +105,50 @@
             </div>
           </div>
 
+          <!-- Thought Process / Steps Flow -->
+          <div class="steps-box">
+            <div class="steps-header">
+              <span class="steps-title" data-i18n="p1_steps_title"><i class="fa-solid fa-route"></i> Linha de Raciocínio & Etapas de Resolução</span>
+            </div>
+            <div class="steps-list">
+              <div class="step-card">
+                <span class="step-num">01</span>
+                <div class="step-content">
+                  <strong data-i18n="p1_s1_title">Identificação do Cenário de Custos</strong>
+                  <p data-i18n="p1_s1_desc">A empresa pagava 12 capacidades Premium e mais de 6.000 licenças Pro, acumulando custos de licenciamento redundantes.</p>
+                </div>
+              </div>
+              <div class="step-card">
+                <span class="step-num">02</span>
+                <div class="step-content">
+                  <strong data-i18n="p1_s2_title">A Regra de Negócio (O Insight)</strong>
+                  <p data-i18n="p1_s2_desc">Em relatórios alocados em capacidades Premium, usuários com licença Free podem visualizar dashboards normalmente sem exigir Pro.</p>
+                </div>
+              </div>
+              <div class="step-card">
+                <span class="step-num">03</span>
+                <div class="step-content">
+                  <strong data-i18n="p1_s3_title">Auditoria SQL no Histórico de Atividades</strong>
+                  <p data-i18n="p1_s3_desc">Cruzamento dos logs de auditoria (Activity Log) para analisar o tipo de atividade e o local de cada workspace nos últimos 90 dias.</p>
+                </div>
+              </div>
+              <div class="step-card">
+                <span class="step-num">04</span>
+                <div class="step-content">
+                  <strong data-i18n="p1_s4_title">Filtro Estrito de Exclusão (HAVING)</strong>
+                  <p data-i18n="p1_s4_desc">Se o usuário fez qualquer ação de edição/criação/publicação ou consumiu dados fora de Premium, ele foi mantido como Pro.</p>
+                </div>
+              </div>
+              <div class="step-card highlight">
+                <span class="step-num">05</span>
+                <div class="step-content">
+                  <strong data-i18n="p1_s5_title">Migração Segura & Resultado Real</strong>
+                  <p data-i18n="p1_s5_desc">Geração da lista final auditada para downgrade para licença Free com zero interrupção, economizando cerca de R$ 500.000 para 2025.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!-- Code Block -->
           <div class="code-box">
             <div class="code-box-header">
@@ -224,6 +268,50 @@ ORDER BY
               <p data-i18n="p2_solution_p">
                 Construí notebooks em Python/PySpark no Fabric para fazer as requisições na API REST administrativa do Power BI, lidando com autenticação e paginação de dados. O retorno das APIs é salvo em tabelas Delta dentro de um Lakehouse. Toda a execução dos notebooks foi orquestrada por meio de um Data Pipeline agendado no Fabric, e os dados foram estruturados em um modelo dimensional (esquema estrela) para alimentar os relatórios de governança.
               </p>
+            </div>
+          </div>
+
+          <!-- Thought Process / Steps Flow Project 2 -->
+          <div class="steps-box">
+            <div class="steps-header">
+              <span class="steps-title" data-i18n="p2_steps_title"><i class="fa-solid fa-route"></i> Arquitetura de Dados & Etapas de Construção</span>
+            </div>
+            <div class="steps-list">
+              <div class="step-card">
+                <span class="step-num">01</span>
+                <div class="step-content">
+                  <strong data-i18n="p2_s1_title">Mapeamento dos Endpoints das APIs REST</strong>
+                  <p data-i18n="p2_s1_desc">Identificação das APIs administrativas do Power BI: Activity Events, inventário de Workspaces, histórico de Refreshes e Clusters de Gateways.</p>
+                </div>
+              </div>
+              <div class="step-card">
+                <span class="step-num">02</span>
+                <div class="step-content">
+                  <strong data-i18n="p2_s2_title">Ingestão via Fabric Notebooks (PySpark)</strong>
+                  <p data-i18n="p2_s2_desc">Construção de rotinas com autenticação via Service Principal (Entra ID) e paginação com continuationToken para carregar lotes de telemetria.</p>
+                </div>
+              </div>
+              <div class="step-card">
+                <span class="step-num">03</span>
+                <div class="step-content">
+                  <strong data-i18n="p2_s3_title">Armazenamento Estruturado em Lakehouse Delta</strong>
+                  <p data-i18n="p2_s3_desc">Persistência dos dados brutos em tabelas Delta particionadas no Lakehouse, garantindo histórico perene e consultas de alta performance.</p>
+                </div>
+              </div>
+              <div class="step-card">
+                <span class="step-num">04</span>
+                <div class="step-content">
+                  <strong data-i18n="p2_s4_title">Orquestração em Data Pipelines</strong>
+                  <p data-i18n="p2_s4_desc">Agendamento de pipelines no Fabric para rodar os notebooks sequencialmente com tratamento de falhas e alertas.</p>
+                </div>
+              </div>
+              <div class="step-card highlight">
+                <span class="step-num">05</span>
+                <div class="step-content">
+                  <strong data-i18n="p2_s5_title">Modelagem Dimensional & Observabilidade</strong>
+                  <p data-i18n="p2_s5_desc">Estruturação de um Star Schema para relatórios no Power BI, dando visibilidade da saúde do tenant para mais de 70.000 usuários ativos.</p>
+                </div>
+              </div>
             </div>
           </div>
 

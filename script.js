@@ -28,6 +28,19 @@ const translations = {
     p1_sim_title: "Amostra da Base Analisada (Dados Fictícios)",
     p1_sim_sub: "Simulação demonstrando a lógica de classificação aplicada sobre os usuários",
 
+    // P1 Steps
+    p1_steps_title: "Linha de Raciocínio & Etapas de Resolução",
+    p1_s1_title: "Identificação do Cenário de Custos",
+    p1_s1_desc: "A empresa pagava 12 capacidades Premium e mais de 6.000 licenças Pro, acumulando custos de licenciamento redundantes.",
+    p1_s2_title: "A Regra de Negócio (O Insight)",
+    p1_s2_desc: "Em relatórios alocados em capacidades Premium, usuários com licença Free podem visualizar dashboards normalmente sem exigir Pro.",
+    p1_s3_title: "Auditoria SQL no Histórico de Atividades",
+    p1_s3_desc: "Cruzamento dos logs de auditoria (Activity Log) para analisar o tipo de atividade e o local de cada workspace nos últimos 90 dias.",
+    p1_s4_title: "Filtro Estrito de Exclusão (HAVING)",
+    p1_s4_desc: "Se o usuário fez qualquer ação de edição/criação/publicação ou consumiu dados fora de Premium, ele foi mantido como Pro.",
+    p1_s5_title: "Migração Segura & Resultado Real",
+    p1_s5_desc: "Geração da lista final auditada para downgrade para licença Free com zero interrupção, economizando cerca de R$ 500.000 para 2025.",
+
     // P2 Fabric
     p2_impact: "Ambiente com +70.000 usuários",
     p2_title: "Sistema de Monitoramento do Tenant Power BI em Microsoft Fabric (Workspace Monitoring)",
@@ -37,6 +50,19 @@ const translations = {
     p2_solution_p: "Construí notebooks em Python/PySpark no Fabric para fazer as requisições na API REST administrativa do Power BI, lidando com autenticação e paginação de dados. O retorno das APIs é salvo em tabelas Delta dentro de um Lakehouse. Toda a execução dos notebooks foi orquestrada por meio de um Data Pipeline agendado no Fabric, e os dados foram estruturados em um modelo dimensional (esquema estrela) para alimentar os relatórios de governança.",
     p2_sim_title: "Monitoramento de Datasets & Gateways (Simulação de Dados)",
     p2_sim_sub: "Exemplo das informações consolidadas no Lakehouse para acompanhamento de falhas e durações",
+
+    // P2 Steps
+    p2_steps_title: "Arquitetura de Dados & Etapas de Construção",
+    p2_s1_title: "Mapeamento dos Endpoints das APIs REST",
+    p2_s1_desc: "Identificação das APIs administrativas do Power BI: Activity Events, inventário de Workspaces, histórico de Refreshes e Clusters de Gateways.",
+    p2_s2_title: "Ingestão via Fabric Notebooks (PySpark)",
+    p2_s2_desc: "Construção de rotinas com autenticação via Service Principal (Entra ID) e paginação com continuationToken para carregar lotes de telemetria.",
+    p2_s3_title: "Armazenamento Estruturado em Lakehouse Delta",
+    p2_s3_desc: "Persistência dos dados brutos em tabelas Delta particionadas no Lakehouse, garantindo histórico perene e consultas de alta performance.",
+    p2_s4_title: "Orquestração em Data Pipelines",
+    p2_s4_desc: "Agendamento de pipelines no Fabric para rodar os notebooks sequencialmente com tratamento de falhas e alertas.",
+    p2_s5_title: "Modelagem Dimensional & Observabilidade",
+    p2_s5_desc: "Estruturação de um Star Schema para relatórios no Power BI, dando visibilidade da saúde do tenant para mais de 70.000 usuários ativos.",
 
     // Filters
     filter_all: "Todos",
@@ -119,6 +145,19 @@ const translations = {
     p1_sim_title: "Sample Analyzed Dataset (Mock Data)",
     p1_sim_sub: "Simulation illustrating the classification logic applied across user accounts",
 
+    // P1 Steps
+    p1_steps_title: "Problem Solving & Analytical Steps",
+    p1_s1_title: "Cost Baseline Identification",
+    p1_s1_desc: "The organization funded 12 dedicated Premium capacities and 6,000+ Pro licenses, generating redundant recurring overhead.",
+    p1_s2_title: "Architectural Rule (The Core Insight)",
+    p1_s2_desc: "In workspaces hosted on Premium capacities, users with a Free license can view and interact with reports without needing Pro.",
+    p1_s3_title: "SQL Telemetry Audit Across Tenant Logs",
+    p1_s3_desc: "Queried the Unified Activity Logs to inspect 90 days of user actions, workspace placement, and activity types.",
+    p1_s4_title: "Strict Exclusion Filter (HAVING Clause)",
+    p1_s4_desc: "Any user who authored, published, created datasets, or accessed non-premium workspaces retained Pro status.",
+    p1_s5_title: "Safe Downgrade & Verified Impact",
+    p1_s5_desc: "Generated the verified list of safe downgrades to Free with zero workflow disruption, yielding ~R$ 500k in annual renewal savings.",
+
     // P2 Fabric
     p2_impact: "Environment with 70,000+ users",
     p2_title: "Power BI Tenant Monitoring System in Microsoft Fabric (Monitoring Workspace)",
@@ -128,6 +167,19 @@ const translations = {
     p2_solution_p: "I developed Python/PySpark notebooks in Fabric to query the Power BI Admin REST APIs, handling token refresh and pagination. API payloads were stored into Lakehouse Delta tables. Execution was orchestrated on schedule via Fabric Data Pipelines, and data was modeled into a Star Schema to feed internal governance dashboards.",
     p2_sim_title: "Dataset & Gateway Monitoring (Mock Data)",
     p2_sim_sub: "Sample data consolidated in the Lakehouse to track refresh failures and runtimes",
+
+    // P2 Steps
+    p2_steps_title: "Data Architecture & Implementation Pipeline",
+    p2_s1_title: "Admin REST Endpoints Mapping",
+    p2_s1_desc: "Identified relevant Power BI Admin APIs: Activity Events, Workspaces inventory, Refresh history, and Gateway clusters.",
+    p2_s2_title: "Ingestion via Fabric Notebooks (PySpark)",
+    p2_s2_desc: "Engineered extraction routines with Entra ID Service Principal authentication and continuationToken pagination.",
+    p2_s3_title: "Structured Delta Lakehouse Storage",
+    p2_s3_desc: "Persisted normalized data into partitioned Delta tables, enabling durable retention and high-speed analytical queries.",
+    p2_s4_title: "Orchestration with Data Pipelines",
+    p2_s4_desc: "Scheduled sequential notebook execution in Fabric pipelines with automatic exception handling and alerts.",
+    p2_s5_title: "Dimensional Modeling & Tenant Observability",
+    p2_s5_desc: "Engineered a Star Schema linking activity and refresh facts to dimensions, providing operational governance for 70,000+ users.",
 
     // Filters
     filter_all: "All",

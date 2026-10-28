@@ -295,6 +295,92 @@ a {
   border-radius: 4px;
 }
 
+/* Steps / Problem Solving Flow */
+.steps-box {
+  background: var(--bg-code);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 1.2rem;
+  margin-bottom: 1.8rem;
+}
+
+.steps-header {
+  margin-bottom: 0.9rem;
+}
+
+.steps-title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.steps-title i {
+  color: var(--accent-blue);
+}
+
+.steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.step-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-muted);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+  transition: border-color 0.15s ease;
+}
+
+.step-card:hover {
+  border-color: var(--border);
+}
+
+.step-card.highlight {
+  border-color: rgba(63, 185, 80, 0.35);
+  background: rgba(63, 185, 80, 0.04);
+}
+
+.step-num {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent-blue);
+  background: var(--bg-code);
+  border: 1px solid var(--border);
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  flex-shrink: 0;
+  line-height: 1.35;
+}
+
+.step-card.highlight .step-num {
+  color: var(--accent-green);
+  border-color: rgba(63, 185, 80, 0.4);
+}
+
+.step-content strong {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--text-main);
+  margin-bottom: 0.15rem;
+}
+
+.step-content p {
+  font-size: 0.84rem;
+  color: #8b949e;
+  line-height: 1.45;
+  margin: 0;
+}
+
 /* Code Box */
 .code-box {
   background: var(--bg-code);
