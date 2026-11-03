@@ -37,10 +37,9 @@
 
       <div class="header-actions">
         <!-- Language Switcher -->
-        <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Idioma">
-          <button type="button" class="lang-opt active" data-lang="pt">PT-BR</button>
-          <span class="lang-sep">/</span>
-          <button type="button" class="lang-opt" data-lang="en">EN</button>
+        <div class="lang-switch" role="group" aria-label="Selecionar idioma">
+          <button class="lang-option" type="button" data-lang="pt" aria-pressed="true">PT</button>
+          <button class="lang-option" type="button" data-lang="en" aria-pressed="false">EN</button>
         </div>
       </div>
     </div>
@@ -77,19 +76,22 @@
         </p>
       </div>
 
+      <div class="projects-grid">
       <!-- Project 1: VALE License Optimization -->
       <article class="project-card">
-        <div class="project-header">
-          <div class="project-meta-line">
+        <button class="project-header project-toggle" type="button" aria-expanded="false" aria-controls="p1-detail">
+          <span class="project-meta-line">
             <span class="project-tag">Case Vale • DXC Technology</span>
             <span class="project-stat" data-i18n="p1_impact">~R$ 500.000 de economia anual (2025)</span>
-          </div>
-          <h3 class="project-title" data-i18n="p1_title">
+          </span>
+          <span class="project-title" role="heading" aria-level="3" data-i18n="p1_title">
             Otimização de Licenças Power BI via Auditoria de Logs em Capacidades Premium
-          </h3>
-        </div>
+          </span>
+          <p class="project-summary" data-i18n="p1_summary">Auditoria dos logs de atividade para identificar licenças Pro que poderiam ser convertidas para Free com segurança.</p>
+          <span class="project-toggle-label"><span data-i18n="project_expand">Clique para ver o que foi feito</span><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></span>
+        </button>
 
-        <div class="project-body">
+        <div class="project-body" id="p1-detail" hidden>
           <div class="project-context">
             <div class="context-block">
               <h4 data-i18n="p1_context_h">Contexto & Problema</h4>
@@ -245,17 +247,19 @@ ORDER BY
 
       <!-- Project 2: Microsoft Fabric Monitoring Workspace -->
       <article class="project-card">
-        <div class="project-header">
-          <div class="project-meta-line">
+        <button class="project-header project-toggle" type="button" aria-expanded="false" aria-controls="p2-detail">
+          <span class="project-meta-line">
             <span class="project-tag">Microsoft Fabric • Governança & Engenharia</span>
             <span class="project-stat" data-i18n="p2_impact">Ambiente com +70.000 usuários</span>
-          </div>
-          <h3 class="project-title" data-i18n="p2_title">
+          </span>
+          <span class="project-title" role="heading" aria-level="3" data-i18n="p2_title">
             Sistema de Monitoramento do Tenant Power BI em Microsoft Fabric (Workspace Monitoring)
-          </h3>
-        </div>
+          </span>
+          <p class="project-summary" data-i18n="p2_summary">Plataforma de telemetria no Fabric para centralizar atividades, inventário, atualizações e saúde do tenant.</p>
+          <span class="project-toggle-label"><span data-i18n="project_expand">Clique para ver o que foi feito</span><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></span>
+        </button>
 
-        <div class="project-body">
+        <div class="project-body" id="p2-detail" hidden>
           <div class="project-context">
             <div class="context-block">
               <h4 data-i18n="p2_context_h">Contexto & Objetivo</h4>
@@ -391,41 +395,6 @@ df.write.format("delta").mode("append").saveAsTable("Lakehouse_Monitoring.Fact_A
       </article>
 
       <!-- Additional Experience Cases (Accenture & Zygon) -->
-      <div class="secondary-projects-grid">
-        <div class="secondary-card">
-          <div class="project-meta-line">
-            <span class="project-tag">Accenture • Johnson & Johnson US</span>
-          </div>
-          <h3 class="secondary-title" data-i18n="p3_title">Sustentação de BI & Otimização de Queries no Athena</h3>
-          <p class="secondary-desc" data-i18n="p3_desc">
-            Manutenção e melhorias em relatórios de Power BI e Tableau para apoiar stakeholders nos Estados Unidos. Otimização e correção de consultas SQL executadas no Amazon Athena para garantir dados corretos e boa performance de carregamento.
-          </p>
-          <div class="tech-inline-list">
-            <span>SQL</span>
-            <span>Amazon Athena</span>
-            <span>Power BI</span>
-            <span>Tableau</span>
-            <span>DBeaver</span>
-            <span>Agile</span>
-          </div>
-        </div>
-
-        <div class="secondary-card">
-          <div class="project-meta-line">
-            <span class="project-tag">Zygon • iFood, O Boticário, Cencosud</span>
-          </div>
-          <h3 class="secondary-title" data-i18n="p4_title">Pipelines e Dashboards de Performance de Marketing</h3>
-          <p class="secondary-desc" data-i18n="p4_desc">
-            Extração de dados de Google Ads e Facebook Ads via Supermetrics e Tableau Prep. Construção de dashboards no Power BI e Tableau acompanhando KPIs de mídia (ROAS, conversões, cliques e impressões), com prototipação de telas no Figma.
-          </p>
-          <div class="tech-inline-list">
-            <span>Power BI</span>
-            <span>Tableau Prep</span>
-            <span>Supermetrics</span>
-            <span>Google Analytics</span>
-            <span>Figma</span>
-          </div>
-        </div>
       </div>
     </section>
 

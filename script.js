@@ -16,11 +16,14 @@ const translations = {
     intro_bio: "Trabalho com modelagem de dados, SQL, Power BI e Microsoft Fabric. Tenho mais de 4 anos de experiência construindo relatórios executivos, automações e pipelines analíticos, com passagens por projetos na Vale, Johnson & Johnson, iFood e O Boticário.",
 
     heading_projects: "Projetos & Casos Práticos",
+    project_expand: "Clique para ver o que foi feito",
+    project_close: "Fechar projeto",
     projects_disclaimer: "Por questões de privacidade e sigilo corporativo, os dados exibidos nas demonstrações abaixo foram recriados com bases sintéticas, preservando a lógica técnica e o modelo dimensional aplicados em produção.",
 
     // P1 Vale
     p1_impact: "~R$ 500.000 de economia anual (2025)",
     p1_title: "Otimização de Licenças Power BI via Auditoria de Logs em Capacidades Premium",
+    p1_summary: "Auditoria dos logs de atividade para identificar licenças Pro que poderiam ser convertidas para Free com segurança.",
     p1_context_h: "Contexto & Problema",
     p1_context_p: "A empresa mantinha 12 capacidades Premium ativas e arcava simultaneamente com mais de 6.000 licenças pagas do Power BI Pro. Isso gerava um custo recorrente muito elevado. Como os relatórios publicados em workspaces alocados em capacidades Premium não exigem licença Pro para visualização (usuários com licença gratuita podem consumir normalmente), surgiu a oportunidade de reduzir licenças sem prejudicar ninguém.",
     p1_solution_h: "O que eu fiz",
@@ -44,6 +47,7 @@ const translations = {
     // P2 Fabric
     p2_impact: "Ambiente com +70.000 usuários",
     p2_title: "Sistema de Monitoramento do Tenant Power BI em Microsoft Fabric (Workspace Monitoring)",
+    p2_summary: "Plataforma de telemetria no Fabric para centralizar atividades, inventário, atualizações e saúde do tenant.",
     p2_context_h: "Contexto & Objetivo",
     p2_context_p: "Para viabilizar análises como a de otimização de licenças e ter visibilidade geral da saúde do tenant, criei um workspace chamado <code>Monitoring</code> no Microsoft Fabric. O objetivo era centralizar informações sobre atividades de usuários, inventário de workspaces, capacidades, rotinas de atualização de datasets, dataflows e status de gateways. O conceito foi inspirado no FUAM (Fabric Unified Activity Monitor), mas adaptado de forma direta e simplificada para a necessidade da operação.",
     p2_solution_h: "Arquitetura da Solução",
@@ -133,11 +137,14 @@ const translations = {
     intro_bio: "Working with data modeling, SQL, Power BI, and Microsoft Fabric. Over 4 years of experience building executive dashboards, automations, and analytical pipelines, contributing to projects for clients like Vale, Johnson & Johnson, iFood, and O Boticário.",
 
     heading_projects: "Projects & Practical Cases",
+    project_expand: "Click to see what was done",
+    project_close: "Close project",
     projects_disclaimer: "Due to privacy and corporate confidentiality, datasets shown in demonstrations below have been recreated with synthetic mock data while strictly preserving the analytical logic and dimensional models used in production.",
 
     // P1 Vale
     p1_impact: "~$100,000 / year saved (2025)",
     p1_title: "Power BI License Optimization via Audit Log Telemetry on Premium Capacities",
+    p1_summary: "An audit of activity logs to safely identify Pro licenses that could be converted to Free.",
     p1_context_h: "Context & Problem",
     p1_context_p: "The enterprise operated 12 active Premium capacities while simultaneously maintaining more than 6,000 paid Power BI Pro licenses, resulting in a high recurring cost. Since reports hosted in workspaces on Premium capacities do not require viewers to hold a Pro license (free users can consume them seamlessly), there was a clear opportunity to reduce licensing costs without disrupting users.",
     p1_solution_h: "What I did",
@@ -161,6 +168,7 @@ const translations = {
     // P2 Fabric
     p2_impact: "Environment with 70,000+ users",
     p2_title: "Power BI Tenant Monitoring System in Microsoft Fabric (Monitoring Workspace)",
+    p2_summary: "A Fabric telemetry platform centralizing activity, inventory, refreshes, and tenant health.",
     p2_context_h: "Context & Goal",
     p2_context_p: "To enable analyses like the license audit and maintain broad visibility into tenant health, I set up a dedicated workspace named <code>Monitoring</code> in Microsoft Fabric. The goal was to centralize data regarding user activity, workspace inventory, capacities, dataset refresh schedules, dataflows, and gateway statuses. Inspired by the concept of FUAM (Fabric Unified Activity Monitor), it was adapted in a straightforward and practical manner for day-to-day operations.",
     p2_solution_h: "Solution Architecture",
@@ -409,21 +417,23 @@ function initLanguage() {
     currentLang = browserLang.startsWith('pt') ? 'pt' : 'en';
   }
   applyTranslations();
-  updateLangSwitcher();
+  updateLangButton();
 }
 
-function setLanguage(lang) {
-  currentLang = lang;
+function setLanguage(language) {
+  if (language !== 'pt' && language !== 'en') return;
+  currentLang = language;
   localStorage.setItem('mf_lang_pref', currentLang);
   applyTranslations();
-  updateLangSwitcher();
+  updateLangButton();
   renderP1Table();
   renderP2Table();
 }
 
-function updateLangSwitcher() {
-  document.querySelectorAll('.lang-opt').forEach(btn => {
-    btn.classList.toggle('active', btn.getAttribute('data-lang') === currentLang);
+function updateLangButton() {
+  document.querySelectorAll('.lang-option').forEach(button => {
+    const active = button.dataset.lang === currentLang;
+    button.setAttribute('aria-pressed', String(active));
   });
 }
 
@@ -563,9 +573,44 @@ document.addEventListener('DOMContentLoaded', () => {
   renderP1Table();
   renderP2Table();
 
-  document.querySelectorAll('.lang-opt').forEach(btn => {
-    btn.addEventListener('click', () => {
-      setLanguage(btn.getAttribute('data-lang'));
+  const projectToggles = document.querySelectorAll('.project-toggle');
+  const setProjectExpanded = (button, expanded) => {
+    const panel = document.getElementById(button.getAttribute('aria-controls'));
+    const card = button.closest('.project-card');
+    const label = button.querySelector('.project-toggle-label [data-i18n]');
+
+    button.setAttribute('aria-expanded', String(expanded));
+    button.setAttribute('aria-label', expanded
+      ? (currentLang === 'pt' ? 'Fechar detalhes do projeto' : 'Close project details')
+      : (currentLang === 'pt' ? 'Abrir detalhes do projeto' : 'Open project details'));
+    label.setAttribute('data-i18n', expanded ? 'project_close' : 'project_expand');
+    label.textContent = translations[currentLang][expanded ? 'project_close' : 'project_expand'];
+    panel.hidden = !expanded;
+    card.classList.toggle('is-expanded', expanded);
+    document.body.classList.toggle('project-modal-open', expanded);
+  };
+
+  projectToggles.forEach(button => {
+    button.addEventListener('click', () => {
+      const expanded = button.getAttribute('aria-expanded') === 'true';
+      projectToggles.forEach(otherButton => {
+        if (otherButton !== button && otherButton.getAttribute('aria-expanded') === 'true') {
+          setProjectExpanded(otherButton, false);
+        }
+      });
+      setProjectExpanded(button, !expanded);
     });
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key !== 'Escape') return;
+    const openButton = document.querySelector('.project-toggle[aria-expanded="true"]');
+    if (!openButton) return;
+    setProjectExpanded(openButton, false);
+    openButton.focus();
+  });
+
+  document.querySelectorAll('.lang-option').forEach(button => {
+    button.addEventListener('click', () => setLanguage(button.dataset.lang));
   });
 });
